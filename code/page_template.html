@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Where Languages Come From</title>
+<meta name="description" content="Every one of the world's {{counts.spoken|int}} spoken languages in Glottolog on one map: {{counts.families|int}} families and {{counts.isolates|int}} isolates, a family tree you can browse from Indo-European down to English, endangerment, speaker numbers, and the proposed homelands of the great language families.">
+<meta property="og:title" content="Where languages come from: the world's language families, their homelands and where they are spoken today">
+<meta property="og:description" content="{{counts.lineages|int}} separate lineages, {{aes.endangered_pct|pc1}} of languages endangered and {{aes.extinct_pct|pc1}} extinct, {{countries.png_n|int}} living languages in Papua New Guinea alone. An interactive map of every language in Glottolog.">
+<meta property="og:image" content="https://maps.tristanhotham.com/language-origins/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/language-origins/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Paper and ink: warm paper, deep teal, ochre. Family colours are set in the data. */
+:root{
+  --bg:#F8F5EE; --panel:#EEE9DF; --fg:#1E1C26; --muted:#66626F; --rule:#E2DBCF; --card:#FFFDF8; --border:#D0C8B9;
+  --hot:#1D6E8A; --cool:#2E8B57; --gold:#C77A1F; --land:#ECE6DA; --sea:#F1EEE8;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14161B; --panel:#1F222A; --fg:#ECEAF0; --muted:#A3A1AE; --rule:#33363F; --card:#1A1D23; --border:#464955;
+  --hot:#6FC1DC; --cool:#6CC59A; --gold:#F0B060; --land:#272A33; --sea:#191B21; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14161B; --panel:#1F222A; --fg:#ECEAF0; --muted:#A3A1AE; --rule:#33363F; --card:#1A1D23; --border:#464955;
+  --hot:#6FC1DC; --cool:#6CC59A; --gold:#F0B060; --land:#272A33; --sea:#191B21; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,96px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--gold)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:290px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.btn.orig[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#fff}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);height:660px;overflow:auto}
+@media (max-width:900px){.side{height:auto;max-height:560px}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 24px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side .crumbs{font-size:12px;color:var(--muted);margin:0 0 8px;line-height:1.6}
+.side .crumbs a{cursor:pointer;color:var(--fg)}
+.side .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:6px 0 8px}
+.side .kv span:nth-child(odd){color:var(--muted)}
+.side ul.kids{list-style:none;margin:4px 0 8px;padding:0}
+.side ul.kids li{display:flex;align-items:center;gap:6px;padding:5px 2px;border-bottom:1px solid var(--rule);cursor:pointer}
+.side ul.kids li:hover{background:var(--panel)}
+.side ul.kids li .nm{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.side ul.kids li .ct{flex:0 0 auto;color:var(--muted);font-size:12px}
+.side ul.kids li.lg .nm{font-style:italic}
+.side .aesbar{display:flex;height:9px;border-radius:2px;overflow:hidden;margin:4px 0 2px}
+.side .aesbar i{display:block;height:100%}
+.side .hl{border-left:4px solid var(--gold);padding:6px 9px;background:var(--panel);margin:8px 0;font-size:12px}
+.side .hl b{display:block}
+.side .more{color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;flex:0 0 11px;border:1px solid rgba(0,0,0,.18)}
+.sw.sq{border-radius:2px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:660px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(64vh,470px)}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg);border-radius:3px}
+.leaflet-popup-content{margin:10px 12px;font:400 12px/1.45 var(--mono);min-width:200px}
+.leaflet-popup-content b.t{font:700 16px/1.2 var(--display);display:block;margin-bottom:4px}
+.leaflet-popup-content .pth{color:var(--muted);font-size:11px;margin:2px 0 6px}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:262px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,540px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.cityL.s{font-size:10px;font-weight:400}
+.cntL{font:700 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;opacity:.7;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none;text-align:center}
+.origL{font:600 11px/1.15 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none}
+.mk{background:none;border:0}
+.mapnote{background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--border);border-radius:3px;padding:6px 9px;font:400 12px/1.35 var(--mono);max-width:min(300px,62vw);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.mapnote:empty{display:none}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .t{color:var(--fg);font-weight:500}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 12.5px/1.4 var(--mono);margin:14px 0}
+table.tbl th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 6px 6px 0;vertical-align:bottom}
+table.tbl td{border-bottom:1px solid var(--rule);padding:7px 6px 7px 0;vertical-align:top}
+table.tbl td.num{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.refs{font:400 12.5px/1.5 var(--mono);color:var(--muted);padding-left:18px}
+.refs li{margin:0 0 6px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Languages</span><span>World, 2026</span></div>
+<header class="hero">
+  <h1>Where languages <span class="a">come from</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Every one of the world's {{counts.spoken|int}} spoken languages in Glottolog, on one map: how they are related, how many are in danger, how many people speak them, and where the great language families may have begun.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Glottolog {{meta.glottolog|raw}}; Wikidata; Natural Earth; published homeland studies</div>
+
+<div class="stats">
+  <div><b class="h">{{counts.lineages|int}}</b><span>separate lineages: {{counts.families|int}} families and {{counts.isolates|int}} isolates with no known relatives</span></div>
+  <div><b class="g">{{aes.endangered_pct|pc1}}</b><span>of spoken languages are endangered, and a further {{aes.extinct_pct|pc1}} are extinct</span></div>
+  <div><b>{{countries.png_n|int}}</b><span>living languages in Papua New Guinea, from {{countries.png_lineages|int}} lineages</span></div>
+  <div><b class="c">{{speakers.top20_share|pc1}}</b><span>of all speakers counted speak one of the 20 largest languages ({{speakers.n|int}} languages have a count)</span></div>
+</div>
+
+<p class="lede">Nobody knows exactly how many languages there are, because nobody agrees exactly where one language ends and the next begins. But the best open attempt to list them all, Glottolog, counts {{counts.spoken|int}} spoken first languages, living and dead, and places nearly all of them on a map. It also sorts them into families, the way a biologist sorts species: English sits inside West Germanic, inside Germanic, inside Indo-European, and Indo-European is just one of {{counts.families|int}} families that cannot, on present evidence, be shown to be related to each other.</p>
+<p>This page puts that whole tree on a map. Colour the world by family, then click a family to see its branches light up: Indo-European, then Germanic, then West Germanic, then English. Switch to endangerment to see how many languages are slipping away, to speakers to see how few languages most people speak, or to diversity to find the places where languages are packed most densely. A separate layer, clearly labelled, shows where specialists think the great families began.</p>
+
+<h2><span class="n">01 · The map</span>Every language, every family</h2>
+<div class="bleed" id="atlas">
+<div class="controls">
+  <div class="scrollrow" id="modeRow"><span class="ctl-l">Colour by</span><button class="btn" data-m="family" aria-pressed="true">Family</button><button class="btn" data-m="aes" aria-pressed="false">Endangerment</button><button class="btn" data-m="speakers" aria-pressed="false">Speakers</button><button class="btn" data-m="divn" aria-pressed="false">Languages per area</button><button class="btn" data-m="divl" aria-pressed="false">Lineages per area</button></div>
+</div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a language, family, branch or country" aria-label="Search a language, family, branch or country" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+  <button class="btn orig" id="origBtn" aria-pressed="false">Proposed homelands</button>
+</div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" role="application" aria-label="Map of the world's languages"></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Each dot is a language at the point Glottolog gives for it, usually the centre of where it is (or was) spoken; a language spoken in many countries still has one dot, at its historical heartland. {{counts.no_coords|int}} languages have no location. Click a dot for details, or browse the family tree in the panel.</p>
+</div>
+
+<h2><span class="n">02 · Families and isolates</span>{{counts.lineages|int}} separate lineages</h2>
+<p>Glottolog groups languages into families only where the evidence of shared descent is solid, which is stricter than many popular charts. On that standard the world's {{counts.spoken|int}} spoken languages fall into {{counts.families|int}} families and {{counts.isolates|int}} isolates: languages such as Basque in Europe, Burushaski in the Karakoram, Nihali in central India and Kusunda in Nepal, with no relatives anyone has been able to prove. Some isolates are only known from writing, like Sumerian. Together that is {{counts.lineages|int}} separate lineages, of which {{counts.lineages_living|int}} still have at least one living language.</p>
+<p>The families are very unequal. Five of them, Atlantic-Congo, Austronesian, Indo-European, Sino-Tibetan and Afro-Asiatic, hold {{counts.top5_share|pc1}} of all languages between them. At the other end, {{counts.families_le5|int}} of the {{counts.families|int}} families have five languages or fewer.</p>
+<div class="figure"><p class="fig-h">The largest language families</p><p class="fig-sub">Number of spoken languages in each family, living and extinct, Glottolog {{meta.glottolog|raw}}. Darker part: living languages. Tap a bar to show the family on the map.</p><div class="chart" id="famChart"></div></div>
+<p>Glottolog's trees are deep. English sits {{english_depth|raw}} levels down: Indo-European, Classical Indo-European, Germanic, Northwest Germanic, West Germanic, North Sea Germanic, Anglo-Frisian, Anglic and then several historical stages of English itself. The deepest language in the tree, {{counts.max_depth_lang|raw}}, a Bantu language of Gabon, is {{counts.max_depth|int}} levels down. Below the languages are {{counts.dialects|int}} named dialects.</p>
+<div class="cta"><a href="#atlas" data-node="stan1293">English in its family tree</a><a href="#atlas" data-node="indo1319">Indo-European by branch</a><a href="#atlas" data-iso="1">The isolates</a></div>
+
+<h2><span class="n">03 · Where the languages are</span>A belt of diversity</h2>
+<p>Languages are not spread evenly. Counting the living languages Glottolog lists in each country, Papua New Guinea comes first with {{countries.top_n.0.n|int}}, then Indonesia ({{countries.top_n.1.n|int}}), Nigeria ({{countries.top_n.2.n|int}}), India ({{countries.top_n.3.n|int}}) and China ({{countries.top_n.4.n|int}}). Papua New Guinea is also the deepest in history: its languages belong to {{countries.top_lineages.0.lineages|int}} different lineages, against {{countries.top_lineages.1.lineages|int}} for Indonesia and {{countries.top_lineages.2.lineages|int}} for Brazil. Relative to land area, Vanuatu is in a class of its own, with {{countries.top_density.0.per10k|f1}} languages per 10,000 square kilometres.</p>
+<div class="figure"><p class="fig-h">Countries with the most living languages</p><p class="fig-sub">Living spoken languages that Glottolog lists in each country (a language spoken in several countries counts in each). Right: number of separate lineages (families and isolates) they belong to.</p><div class="chart" id="ctyChart"></div></div>
+<p>To compare places fairly I also divided the world into squares of {{grid.cell_km|int}} by {{grid.cell_km|int}} kilometres on an equal-area projection and counted the languages whose point falls in each. The densest square, in {{grid.top_n.0.place|raw}}, holds {{grid.top_n.0.n|int}} living languages; the square with the most separate lineages, in {{grid.top_lin.0.place|raw}} near the border with Indonesia, has {{grid.top_lin.0.lin|int}}. Just {{grid.top1pct_cells|int}} squares, the densest 1% of the world's land, hold {{grid.top1pct_share|pc1}} of all living languages. The densest squares lie in a tropical belt: New Guinea and Melanesia, the Nigeria and Cameroon borderland, southern Mexico, and the eastern Himalaya where India, Myanmar and China meet.</p>
+<div class="cta"><a href="#atlas" data-mode="divn">Languages per area on the map</a><a href="#atlas" data-mode="divl" data-zoomto="newguinea">Lineages per area, New Guinea</a></div>
+
+<h2><span class="n">04 · Languages in danger</span>Most of the world's languages are endangered</h2>
+<p>Glottolog's Agglomerated Endangerment Status combines the assessments of Ethnologue, UNESCO and the Endangered Languages Catalogue into one six-step scale. Only {{aes.safe_pct|pc1}} of spoken languages are rated not endangered. {{aes.pct.threatened|pc1}} are threatened, {{aes.pct.shifting|pc1}} are shifting (children are no longer learning them as a matter of course), {{aes.pct.moribund|pc1}} are moribund and {{aes.pct.nearly extinct|pc1}} nearly extinct. Together that makes {{aes.endangered|int}} endangered languages, {{aes.endangered_pct|pc1}} of the total, or {{aes.endangered_of_living_pct|pc1}} of those still spoken. Another {{aes.extinct|int}} ({{aes.extinct_pct|pc1}}) are already extinct.</p>
+<div class="figure"><p class="fig-h">Endangerment by world region</p><p class="fig-sub">Share of spoken languages in each of Glottolog's macroareas by Agglomerated Endangerment Status. Hover for counts.</p><div class="chart" id="aesChart"></div></div>
+<p>Loss has been heaviest where colonial settlement was heaviest. In Glottolog's Australia macroarea {{macro_by.Australia.extinct_pct|pc1}} of languages are extinct, in South America {{macro_by.South America.extinct_pct|pc1}} and in North America {{macro_by.North America.extinct_pct|pc1}}, against {{macro_by.Africa.extinct_pct|pc1}} in Africa. Whole lineages are at stake: of the {{counts.lineages|int}}, {{aes.lineages_no_safe|int}} ({{aes.lineages_no_safe_pct|pc1}}) have no language left that is rated not endangered, and {{aes.isolates_endangered|int}} of the {{counts.isolates_living|int}} living isolates are endangered.</p>
+<p class="pull">Only {{aes.safe_pct|pc1}} of the world's spoken languages are rated safe. {{aes.endangered_pct|pc1}} are endangered and {{aes.extinct_pct|pc1}} already extinct.</p>
+<div class="cta"><a href="#atlas" data-mode="aes">Endangerment on the map</a><a href="#atlas" data-mode="aes" data-zoomto="australia">Australia</a><a href="#atlas" data-mode="aes" data-zoomto="americas">The Americas</a></div>
+
+<h2><span class="n">05 · Speakers</span>A few giants, thousands of small languages</h2>
+<p>Glottolog does not count speakers, so for numbers I turned to Wikidata, which holds a count for {{speakers.n|int}} of the {{counts.spoken|int}} spoken languages ({{speakers.coverage_pct|pc1}}). The counts are a patchwork: they come from different years, from {{speakers.before2000|int}} counts made before 2000 to {{speakers.since2015|int}} made since 2015, with {{speakers.n_undated|int}} undated, and some are of first-language speakers only while others include people who speak the language as a second language. Where a language has several counts I took the most recent (the smallest, if several share that date, as that is usually the first-language figure), or the largest if none is dated. Treat them as orders of magnitude.</p>
+<p>Even so, the pattern is unmistakable. The counts add up to {{speakers.total|bn}} billion. The 10 largest languages, from Mandarin Chinese ({{speakers.top.0.n|m}} million) to Japanese, account for {{speakers.top10_share|pc1}} of that, the 20 largest for {{speakers.top20_share|pc1}} and the 100 largest for {{speakers.top100_share|pc1}}. Half the languages with a count have fewer than {{speakers.median|int}} speakers, and those without a count are mostly smaller still. By family, Indo-European languages account for {{speakers.by_family.0.pct|pc1}} of counted speakers and Sino-Tibetan for {{speakers.by_family.1.pct|pc1}}.</p>
+<div class="figure"><p class="fig-h">The 20 largest languages by Wikidata speaker count</p><p class="fig-sub">Millions of speakers, coloured by family; year of the count in brackets. Counts mix first-language and total figures (Standard Arabic, for instance, is mostly learned as a second language).</p><div class="chart" id="spChart"></div></div>
+<div class="cta"><a href="#atlas" data-mode="speakers">Speakers on the map</a></div>
+
+<h2><span class="n">06 · Origins</span>Where the great families began</h2>
+<p>Every family had a first speech community somewhere. Where, and when, is one of the great detective stories of the human past, pieced together from reconstructed vocabulary, the shape of family trees, archaeology and, lately, ancient DNA. The answers are hypotheses, and some are fiercely contested. The table below sets out the main proposals for {{origins.n_fam|int}} large families, with the places and dates their authors give and a reference for each; the map shows them as stars when you switch on <b>Proposed homelands</b>. For Indo-European, Uralic, Afro-Asiatic and Uto-Aztecan the literature is split, and each main hypothesis is shown.</p>
+<div class="tblwrap"><table class="tbl" id="homeTable"></table></div>
+<p>Alongside the literature I computed two neutral reference points for every family from Glottolog alone. The <b>present centre</b> is the centre of gravity of where the family's living languages are spoken today. The <b>diversity hotspot</b> is the place where the family's deepest branches crowd most closely together: the language with the most distinct top-level branches within 500 kilometres. That follows an old rule of thumb in linguistics, that a family has usually been longest where its deepest divisions are found side by side.</p>
+<div class="figure"><p class="fig-h">How far is each proposed homeland from the family's diversity hotspot and present centre?</p><p class="fig-sub">Great-circle distance in kilometres from each proposed homeland to the hotspot of the family's deepest branches (dot) and to the centre of its living languages today (ring).</p><div class="chart" id="origChart"></div></div>
+<p>For {{origins.n_hot_within500|int}} of the {{origins.n_compared|int}} families the hotspot falls within 500 kilometres of a proposed homeland: Austronesian ({{origins.an_km|int}} km from Taiwan, against {{origins.an_centre_km|int}} km for its present centre in New Guinea), Pama-Nyungan ({{origins.pn_km|int}} km), Quechuan ({{origins.qu_km|int}} km), Bantu ({{origins.bantu_km|int}} km) and the northern Uto-Aztecan proposal. For Indo-European the hotspot lands in the Balkans, where Greek, Albanian, Slavic, Romance and Romani meet, far from both the steppe and Anatolia: three thousand years of later movement have reshuffled Europe. For Sino-Tibetan it lands in north-east India, nearer the minority view of a south-western homeland than the Yellow River. Hotspots are a heuristic, not proof, and where they disagree with the literature, the literature usually has more to go on.</p>
+<div class="note"><h3>Read the origins layer with care</h3><p>The homelands are hypotheses from the cited studies, not results of this one; the points mark the approximate centre of a proposed region, and the dates are the authors' ranges. Niger-Congo is not accepted as a proven family by Glottolog, so its star stands for a proposal, not for a family on the map. The computed centres depend on where Glottolog puts each language and on which languages survived to be recorded.</p></div>
+<div class="cta"><a href="#atlas" data-node="indo1319" data-orig="1">Indo-European homelands</a><a href="#atlas" data-node="aust1307" data-orig="1">Out of Taiwan</a><a href="#atlas" data-node="narr1281" data-orig="1">Bantu</a><a href="#atlas" data-node="pama1250" data-orig="1">Pama-Nyungan</a></div>
+
+<h2><span class="n">07 · How I did this</span>Methods and caveats</h2>
+<p><b>Languages and families.</b> Glottolog {{meta.glottolog|raw}} (Hammarström, Forkel, Haspelmath and Bank), in its CLDF release, lists {{counts.languoids_language_level|int}} language-level entries. I dropped {{counts.bookkeeping|int}} 'bookkeeping' entries, which are names kept for reference rather than languages, and mapped the remaining {{counts.mapped|int}}. Figures on families, endangerment, diversity and speakers use the {{counts.spoken|int}} spoken first languages; the other {{counts.other_nonfamily|int}} ({{counts.sign|int}} sign languages, {{counts.pidgin|int}} pidgins, {{counts.unclassifiable|int}} unclassifiable, {{counts.unattested|int}} unattested and a few artificial and mixed languages and speech registers) are on the map in grey. A family is a top-level genealogical family in Glottolog; an isolate is a language with no proven relatives. 'Living' means any status other than extinct.</p>
+<p><b>Endangerment</b> is Glottolog's Agglomerated Endangerment Status (not endangered, threatened, shifting, moribund, nearly extinct, extinct); I count threatened to nearly extinct as endangered. <b>Speakers</b> are Wikidata's 'number of speakers' for items with a Glottolog code, chosen as described above; they cover a minority of languages and mix years and definitions. <b>Diversity</b> uses Glottolog's country lists for each language and an equal-area grid of {{grid.cell_km|int}} km squares (Equal Earth projection); a language counts in the square that holds its point. Country areas are from Natural Earth. <b>Origins</b>: homelands are typed in from the studies listed below; the present centre is the spherical mean of a family's living languages; the diversity hotspot takes the family's top-level branches (splitting further where one branch holds 80% or more of the languages and there are no more than two), and picks the language with the most distinct branches within 500 km.</p>
+<p><b>What this is not.</b> A dot is one point per language, so the map shows where languages come from more than where their speakers live now: English, Spanish and Portuguese have one dot each, in Europe. The language and dialect line is a judgement, and other catalogues count differently. Endangerment ratings are for whole languages and can be out of date. Homelands are contested, and the map shows proposals, not facts.</p>
+<details><summary>References for the homelands</summary><ol class="refs" id="refList"></ol></details>
+<details><summary>Sources and licences</summary>
+<ul class="refs">
+<li>Hammarström, H., Forkel, R., Haspelmath, M. and Bank, S. (2025) Glottolog {{meta.glottolog|raw}}. Leipzig: Max Planck Institute for Evolutionary Anthropology. https://glottolog.org, CLDF release. CC BY 4.0.</li>
+<li>Wikidata (number of speakers, Glottolog codes), retrieved {{meta.retrieved|raw}}. CC0.</li>
+<li>Natural Earth countries, land, admin-1 and populated places. Public domain.</li>
+<li>Base map tiles © Esri.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/{{DOI}}">Read the paper</a><a href="https://github.com/Tristan-Hotham/language-origins">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/language-origins/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Where languages come from: the world's language families, their proposed homelands and where they are spoken today. Zenodo. <a href="https://doi.org/{{DOI}}">https://doi.org/{{DOI}}</a></p>
+<p>Licence: text, figures and derived data CC BY 4.0 (Glottolog data CC BY 4.0; Wikidata CC0), code MIT.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const WORLD = /*WORLD*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const f1 = n => n == null ? "n/a" : (+n).toFixed(1);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", hideTip);
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const small = () => innerWidth < 900;
+const tipOn = (e, h) => { e.addEventListener("mousemove", ev => showTip(h, ev.clientX, ev.clientY)); e.addEventListener("mouseleave", hideTip); };
+function mix(a, b, t) { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return "#" + A.map((x, i) => Math.round(x + (B[i] - x) * t).toString(16).padStart(2, "0")).join(""); }
+const FAM = SITE.fams, FCOL = FAM.map(f => f[2]), FIDX = Object.fromEntries(FAM.map((f, i) => [f[0], i]));
+const AESN = SITE.aes;
+
+/* hero mark: the world's spoken languages as a ring, by family */
+(function () {
+  const g = document.getElementById("heroMark"), tot = R.counts.spoken; let a0 = -Math.PI / 2; const cx = 60, cy = 60, r0 = 30, r1 = 56;
+  const segs = FAM.slice(0, 9).map(f => [f[2], f[3]]); const rest = tot - segs.reduce((s, x) => s + x[1], 0);
+  segs.push(["#B9B1A3", rest]);
+  segs.forEach(([c, n]) => { const a1 = a0 + 2 * Math.PI * n / tot; const big = a1 - a0 > Math.PI ? 1 : 0; const p = (r, a) => `${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`;
+    el("path", { d: `M${p(r1, a0)} A${r1} ${r1} 0 ${big} 1 ${p(r1, a1)} L${p(r0, a1)} A${r0} ${r0} 0 ${big} 0 ${p(r0, a0)} Z`, fill: c, stroke: "var(--bg)", "stroke-width": 1.5 }, g); a0 = a1; });
+})();
+
+/* ---------- map machinery ---------- */
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ESRI_ATT = 'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, and the GIS user community';
+const LYDEF = { base: "plain", hills: true, hillK: 40, labels: false, labelK: 80, names: true, nameLvl: 1, cnames: true, borders: true, dots: true, dotK: 100, grid: true, gridK: 80, orig: false };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("langorig_layers") || "{}")); } catch (e) {}
+LY.orig = false;
+const saveLY = () => { try { const o = { ...LY }; delete o.orig; localStorage.setItem("langorig_layers", JSON.stringify(o)); } catch (e) {} };
+const map = L.map("map", { minZoom: 1, maxZoom: 13, maxBounds: [[-75, -220], [86, 220]], zoomSnap: .5, preferCanvas: true, worldCopyJump: false }).setView([15, 20], small() ? 1 : 2);
+["hills:250", "grid:380", "bord:390", "dots:450", "labels:470", "orig:600", "names:620"].forEach(s => { const [n, z] = s.split(":"); map.createPane(n); map.getPane(n).style.zIndex = z; });
+["hills", "labels", "names", "bord"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+const dotR = L.canvas({ pane: "dots", padding: .3, tolerance: 3 });
+const gridR = L.canvas({ pane: "grid", padding: .3 });
+let base = null, hills = null, labels = null; const names = L.layerGroup(), cnames = L.layerGroup();
+const borders = L.geoJSON(WORLD, { pane: "bord", interactive: false, style: () => ({ color: isDark() ? "#6a6d78" : "#9d968a", weight: .6, fill: false, opacity: .8 }) });
+function setTiles() {
+  [base, labels, hills].forEach(l => { if (l) map.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const url = LY.base === "relief" ? ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}" : LY.base === "satellite" ? ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" : LY.base === "street" ? ESRI + "World_Street_Map/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
+  base = L.tileLayer(url, { maxZoom: 16, maxNativeZoom: LY.base === "relief" ? 13 : 16, attribution: ESRI_ATT }).addTo(map);
+  hills = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 16, maxNativeZoom: 16, pane: "hills" });
+  labels = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, pane: "labels" });
+  applyLayers();
+}
+function applyLayers() {
+  if (!base) return;
+  if (LY.hills) { hills.addTo(map); hills.setOpacity(Math.min(1, .15 + LY.hillK / 120)); } else map.removeLayer(hills);
+  if (LY.labels) { labels.addTo(map); labels.setOpacity(LY.labelK / 100); } else map.removeLayer(labels);
+  if (LY.names) names.addTo(map); else map.removeLayer(names);
+  if (LY.cnames) cnames.addTo(map); else map.removeLayer(cnames);
+  if (LY.borders) borders.addTo(map); else map.removeLayer(borders);
+  if (dotLayer) { if (LY.dots) dotLayer.addTo(map); else map.removeLayer(dotLayer); }
+  showGrid(); showOrig(); restyle(); placeNames(); legend();
+  document.getElementById("origBtn").setAttribute("aria-pressed", LY.orig);
+}
+function placeNames() {
+  names.clearLayers(); cnames.clearLayers(); origLabels.clearLayers();
+  const z = map.getZoom(), bb = map.getBounds().pad(.05); const boxes = [];
+  if (LY.orig) {   // homeland labels first, to the right of the star or else to the left, skipped if they would overlap
+    const multi = new Set(SITE.homelands.map(h => h.family).filter((f, i, a) => a.indexOf(f) !== i));
+    SITE.homelands.forEach(h => { if (!origShown(h)) return; const pt = map.latLngToContainerPoint([h.lat, h.lon]);
+      const txt = h.family + (multi.has(h.family) ? ": " + h.hyp.replace(" hypothesis", "").replace(" origin", "") : ""), w = txt.length * 6.8 + 4;
+      boxes.push([pt.x - 12, pt.y - 12, pt.x + 12, pt.y + 12]);
+      for (const side of [1, -1, 0]) { const bx = side === 1 ? [pt.x + 13, pt.y - 7, pt.x + 13 + w, pt.y + 7] : side === -1 ? [pt.x - 13 - w, pt.y - 7, pt.x - 13, pt.y + 7] : [pt.x - w / 2, pt.y + 12, pt.x + w / 2, pt.y + 26];
+        const sz = map.getSize(); if (bx[0] < 2 || bx[2] > sz.x - 2) continue;
+        if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue; boxes.push(bx);
+        L.marker([h.lat, h.lon], { pane: "orig", interactive: false, keyboard: false, icon: L.divIcon({ className: "origL", html: esc(txt), iconSize: [w, 14], iconAnchor: side === 1 ? [-13, 7] : side === -1 ? [w + 13, 7] : [w / 2, -12] }) }).addTo(origLabels); break; } });
+  }
+  if (LY.names && !(LY.orig && z < 4)) {
+    const minPop = [[2, 8e6], [3, 3e6], [4, 1e6], [5, 4e5], [6, 1.5e5], [99, 1e5]].find(([zz]) => z < zz + (LY.nameLvl === 2 ? 1.5 : LY.nameLvl === 0 ? -1 : 0))[1] * (LY.nameLvl === 0 ? 2 : 1);
+    let n = 0;
+    for (const c of CITIES) {
+      if (c.pop < minPop || !bb.contains([c.lat, c.lon])) continue;
+      const pt = map.latLngToContainerPoint([c.lat, c.lon]), big = c.pop >= 5e6 || (z >= 6 && c.pop >= 4e5);
+      const bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.name.length * (big ? 6.9 : 6.3), pt.y + 7];
+      if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue;
+      boxes.push(bx); L.marker([c.lat, c.lon], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cityL" + (big ? "" : " s"), html: `<i></i>${esc(c.name)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(names);
+      if (++n >= 120) break;
+    }
+  }
+  if (LY.cnames && z >= 3 && z < 7 && !(LY.orig && z < 4)) {
+    Object.entries(SITE.countries).forEach(([k, c]) => { if (!bb.contains([c.bbox[1] / 2 + c.bbox[3] / 2, c.bbox[0] / 2 + c.bbox[2] / 2])) return;
+      const w = (c.bbox[2] - c.bbox[0]) * (c.bbox[3] - c.bbox[1]); if (z < 4 && w < 120) return; if (z < 5 && w < 12) return;
+      const ll = CPOS[k]; if (!ll) return; const pt = map.latLngToContainerPoint(ll), nm = c.name, ww = nm.length * 7.2;
+      const bx = [pt.x - ww / 2, pt.y - 7, pt.x + ww / 2, pt.y + 7]; if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) return; boxes.push(bx);
+      L.marker(ll, { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cntL", html: esc(nm), iconSize: [ww, 14], iconAnchor: [ww / 2, 7] }) }).addTo(cnames); });
+  }
+}
+const CPOS = {}; WORLD.features.forEach(f => { const c = SITE.countries[f.properties.iso]; if (c && c.lab) CPOS[f.properties.iso] = c.lab; });
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain grey</option><option value="street">Streets</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="labels"> Map labels</label><div class="sub"><span>strength</span><input type="range" data-k="labelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> Bold place names</label><div class="sub"><span>how many</span><select data-k="nameLvl" aria-label="How many place names"><option value="0">Biggest only</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Country boundaries</label></div>
+ <div class="hd">Languages</div>
+ <div class="row"><label><input type="checkbox" data-k="dots"> Language dots</label><div class="sub"><span>size</span><input type="range" data-k="dotK" min="50" max="200" step="10" aria-label="Dot size"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="grid"> Diversity squares (in the diversity views)</label><div class="sub"><span>strength</span><input type="range" data-k="gridK" min="20" max="100" step="5" aria-label="Diversity square strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="orig"> Proposed homelands and computed centres</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const box = map.getContainer(), btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "labelK") LY.labels = true; if (k === "nameLvl") LY.names = true; if (k === "dotK") LY.dots = true; if (k === "gridK") LY.grid = true;
+    sync(); saveLY(); if (k === "base") setTiles(); else applyLayers();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setTiles(); };
+  window.syncLayers = sync; sync();
+})();
+const Note = L.Control.extend({ options: { position: "bottomleft" }, onAdd() { const d = L.DomUtil.create("div", "mapnote"); d.id = "mapnote"; L.DomEvent.disableClickPropagation(d); return d; } });
+map.addControl(new Note());
+L.control.scale({ imperial: false, position: "bottomright" }).addTo(map);
+const note = h => { const n = document.getElementById("mapnote"); if (n) n.innerHTML = h; };
+
+/* ---------- state and data ---------- */
+const S = { mode: "family", node: null, lang: null, iso: false };
+let LG = null, NODES = null, KIDS = null, DIAL = null, GRID = null, dotLayer = null, gridLayer = null, hiMarker = null;
+const AESC = k => AESN[String(k)][1], AESL = k => AESN[String(k)][0];
+const BR = ["#3557B0", "#E07B27", "#2E9E6E", "#C8323C", "#7B4BA8", "#C99A18", "#1C9AA8", "#B0407A", "#6FAE3A", "#8C5A2E", "#5BA4D9", "#E58FBF"];
+let branchOf = null, branchCols = null, branchList = null;   // when a node is selected: language index -> branch colour index
+
+function dotStyleBase() { const z = map.getZoom(); return Math.max(1.8, Math.min(7, 1.6 + (z - 1) * .85)) * LY.dotK / 100; }
+function memberOf(i) {
+  const l = LG[i];
+  if (S.iso) return l[4] >= 0 ? false : l[4] === -1;
+  if (S.node == null) return true;
+  return l[9].includes(S.node);
+}
+function famCol(l) { return l[4] >= 0 ? FCOL[l[4]] : l[4] === -1 ? SITE.iso_col : SITE.pseudo_col; }
+function styleFor(i) {
+  const l = LG[i], r0 = dotStyleBase(), m = memberOf(i), dark = isDark();
+  const faded = { radius: r0 * .6, fillColor: dark ? "#555864" : "#bdb7ab", fillOpacity: .35, color: "transparent", weight: 0 };
+  if (S.mode === "divn" || S.mode === "divl") return m ? { radius: Math.max(1.2, r0 * .42), fillColor: dark ? "#e8e6ee" : "#2a2630", fillOpacity: map.getZoom() < 4 ? 0 : .5, color: "transparent", weight: 0 } : { ...faded, fillOpacity: .1 };
+  if (!m) return faded;
+  if (S.mode === "aes") return { radius: r0, fillColor: AESC(l[5]), fillOpacity: .9, color: dark ? "#14161b" : "#fff", weight: .5 };
+  if (S.mode === "speakers") {
+    if (!l[6]) return { radius: r0 * .5, fillColor: dark ? "#777a86" : "#a8a196", fillOpacity: .5, color: "transparent", weight: 0 };
+    const rr = Math.max(r0 * .8, Math.sqrt(l[6]) / 620 * Math.pow(2, (map.getZoom() - 2) * .6) * LY.dotK / 100);
+    return { radius: Math.min(rr, 90), fillColor: famCol(l), fillOpacity: .55, color: dark ? "#ddd" : "#fff", weight: .8 };
+  }
+  let c = famCol(l);
+  if (branchOf && branchOf[i] != null) c = branchOf[i] < 0 ? (dark ? "#9a9aa6" : "#857f74") : BR[branchOf[i]];
+  const pseudo = l[4] === -2;
+  return { radius: r0, fillColor: pseudo ? (dark ? "#3a3d47" : "#fff") : c, fillOpacity: pseudo ? .7 : .9, color: pseudo ? (dark ? "#9a9aa6" : "#8d8679") : (dark ? "#14161b" : "#fff"), weight: pseudo ? 1 : .5 };
+}
+let order = null;
+function restyle() {
+  if (!dotLayer) return;
+  dotLayer.eachLayer(m => m.setStyle(styleFor(m._i)));
+  // members drawn on top
+  if (S.node != null || S.iso || S.mode === "speakers") dotLayer.eachLayer(m => { if (memberOf(m._i) && (S.mode !== "speakers" || LG[m._i][6])) m.bringToFront(); });
+  if (S.mode === "speakers") { const big = []; dotLayer.eachLayer(m => { if (LG[m._i][6] && memberOf(m._i)) big.push(m); }); big.sort((a, b) => LG[b._i][6] - LG[a._i][6]).forEach(m => m.bringToFront()); }
+  if (hiMarker) hiMarker.bringToFront();
+  if (LY.orig && S.node !== origKey) { showOrig(); placeNames(); }
+}
+function popupHtml(i) {
+  const l = LG[i], p = l[9].map(j => NODES[j][1]);
+  const fam = l[4] >= 0 ? FAM[l[4]][1] : l[4] === -1 ? "Isolate (no known relatives)" : "Not in a family: " + l[14];
+  const pth = p.length > 1 ? p.slice(0, 5).join(" › ") + (p.length > 5 ? " › …" : "") : (p[0] || "");
+  return `<b class="t">${esc(l[1])}</b>${l[13] ? `<div class="pth">also ${esc(l[13])}</div>` : ""}<div>${esc(fam)}</div>${p.length > 1 ? `<div class="pth">${esc(pth)}</div>` : ""}
+  <div><span class="sw sq" style="background:${AESC(l[5])};vertical-align:-1px"></span> ${esc(AESL(l[5]))}</div>
+  <div>Speakers: ${l[6] ? fmt(l[6]) + (l[7] ? ` (${l[7]})` : " (undated)") + " <span style='color:var(--muted)'>Wikidata</span>" : "<span style='color:var(--muted)'>no count</span>"}</div>
+  <div>${l[8] ? "ISO 639-3: " + esc(l[8]) + " · " : ""}<a href="https://glottolog.org/resource/languoid/id/${l[0]}" target="_blank" rel="noopener">Glottolog ${l[0]}</a></div>
+  <div style="margin-top:6px"><span class="go" onclick="pickLang(${i},false)">Show in the family tree</span></div>`;
+}
+function buildDots() {
+  dotLayer = L.layerGroup();
+  LG.forEach((l, i) => { if (l[2] == null) return; const m = L.circleMarker([l[2], l[3]], { renderer: dotR, ...styleFor(i) }); m._i = i;
+    m.on("click", e => { L.DomEvent.stopPropagation(e); pickLang(i, true, e.latlng); });
+    m.on("mouseover", e => { if (small()) return; const r = map.getContainer().getBoundingClientRect(); showTip(`<b>${esc(l[1])}</b><br>${esc(l[4] >= 0 ? FAM[l[4]][1] : l[4] === -1 ? "Isolate" : l[14])}${S.mode === "aes" ? "<br>" + esc(AESL(l[5])) : ""}${S.mode === "speakers" ? "<br>" + (l[6] ? fmt(l[6]) + " speakers" : "no count") : ""}`, r.left + e.containerPoint.x, r.top + e.containerPoint.y); });
+    m.on("mouseout", hideTip);
+    m.addTo(dotLayer); });
+  if (LY.dots) dotLayer.addTo(map);
+}
+/* ---------- diversity grid ---------- */
+function gridCol(v, k) {
+  if (!v) return null; const bins = k === "divn" ? [1, 3, 6, 10, 20, 35, 60, 100] : [1, 2, 3, 4, 6, 9, 14, 20];
+  let i = 0; bins.forEach((b, j) => { if (v >= b) i = j; });
+  const hi = k === "divn" ? "#0B3F57" : "#6E2416", lo = k === "divn" ? "#CFE3E6" : "#F2D6B8"; return mix(isDark() ? mix(lo, "#2b2e38", .6) : lo, hi, i / (bins.length - 1));
+}
+function showGrid() {
+  const on = (S.mode === "divn" || S.mode === "divl") && LY.grid;
+  if (!on) { if (gridLayer && map.hasLayer(gridLayer)) map.removeLayer(gridLayer); return; }
+  if (!GRID) { note("Loading diversity squares..."); fetch("data/grid.json").then(r => r.json()).then(j => { GRID = j; note(""); gridLayer = L.layerGroup(); j.c.forEach(c => { if (!c[1] && !c[3]) return;
+      const p = L.polygon(c[6], { renderer: gridR, weight: .3 }); p._c = c;
+      p.on("click", e => L.popup().setLatLng(e.latlng).setContent(`<b class="t">${fmt(c[1])} living languages</b><div>${fmt(c[2])} separate lineages (families and isolates)</div><div class="pth">${fmt(c[3])} languages and ${fmt(c[4])} lineages including extinct ones. Square of ${j.km} by ${j.km} km${c[5] < 0.6 * j.km * j.km ? `, ${fmt(c[5])} km² of it land` : ""}.</div>`).openOn(map));
+      p.addTo(gridLayer); }); showGrid(); }); return; }
+  gridLayer.eachLayer(p => { const v = S.mode === "divn" ? p._c[1] : p._c[2]; const f = gridCol(v, S.mode);
+    p.setStyle({ fillColor: f || "transparent", fillOpacity: f ? .92 * LY.gridK / 100 : 0, color: isDark() ? "#14161b" : "#fff", opacity: f ? .5 : 0, weight: .3 }); });
+  if (!map.hasLayer(gridLayer)) gridLayer.addTo(map);
+}
+/* ---------- origins layer ---------- */
+const origLayer = L.layerGroup();
+const star = (c, s = 26) => `<svg width="${s}" height="${s}" viewBox="-12 -12 24 24"><path d="M0,-11 L3.1,-3.6 L10.9,-3.4 L4.9,1.6 L6.9,9.4 L0,5 L-6.9,9.4 L-4.9,1.6 L-10.9,-3.4 L-3.1,-3.6Z" fill="${c}" stroke="#fff" stroke-width="1.6"/></svg>`;
+const diamond = c => `<svg width="18" height="18" viewBox="-9 -9 18 18"><path d="M0,-8 L8,0 L0,8 L-8,0Z" fill="${c}" stroke="#fff" stroke-width="1.5"/></svg>`;
+const ring = c => `<svg width="18" height="18" viewBox="-9 -9 18 18"><circle r="6.5" fill="#fff" stroke="${c}" stroke-width="3"/><circle r="1.8" fill="${c}"/></svg>`;
+function famColorByNode(n) { if (n === "narr1281") return FCOL[FIDX["atla1278"]]; return FIDX[n] != null ? FCOL[FIDX[n]] : "#C77A1F"; }
+const origLabels = L.layerGroup();
+function origShown(h) { const sel = S.node != null ? NODES[S.node][0] : null; const anyH = sel && SITE.homelands.some(x => x.node === sel); return !anyH || h.node === sel; }
+function buildOrig() {
+  origLayer.clearLayers();
+  const done = new Set();
+  SITE.homelands.forEach((h, k) => {
+    if (!origShown(h)) return;
+    const c = famColorByNode(h.node);
+    const m = L.marker([h.lat, h.lon], { pane: "orig", icon: L.divIcon({ className: "mk", html: star(c), iconSize: [26, 26], iconAnchor: [13, 13] }) });
+    m.bindPopup(() => `<b class="t">${esc(h.family)}: ${esc(h.hyp)}</b><div>${esc(h.place)}</div><div>${esc(h.date)}</div><div class="pth" style="margin-top:4px">${esc(h.note)}</div><div class="pth">${h.refs.split(";").map(r => esc(SITE.refs[r].split(") ")[0] + ")")).join("; ")}</div><div class="pth">Proposed homeland from the literature, not a result of this study.</div>`);
+    m.addTo(origLayer);
+    if (done.has(h.node)) return; done.add(h.node);
+    const ce = SITE.centres[h.node]; if (!ce) return;
+    const nm = h.family === "Niger-Congo" ? "Atlantic-Congo" : h.family;
+    L.marker(ce.centre, { pane: "orig", icon: L.divIcon({ className: "mk", html: ring(c), iconSize: [18, 18], iconAnchor: [9, 9] }) })
+      .bindPopup(`<b class="t">${esc(nm)}: present centre</b><div>Centre of gravity of its ${fmt(ce.n_living)} living languages today, computed from Glottolog.</div>`).addTo(origLayer);
+    if (ce.hotspot) L.marker(ce.hotspot, { pane: "orig", icon: L.divIcon({ className: "mk", html: diamond(c), iconSize: [18, 18], iconAnchor: [9, 9] }) })
+      .bindPopup(`<b class="t">${esc(nm)}: diversity hotspot</b><div>Where its deepest branches crowd most closely: ${ce.hotspot_branches} of ${ce.n_branches} top-level branches within 500 km of ${esc(ce.hotspot_lang)}. Computed from Glottolog.</div><div class="pth">Branches: ${esc(ce.branches.join(", "))}</div>`).addTo(origLayer);
+  });
+}
+let origKey = null;
+function showOrig() { const key = S.node; if (LY.orig) { if (!origLayer.getLayers().length || key !== origKey) { buildOrig(); origKey = key; } origLayer.addTo(map); origLabels.addTo(map); } else { map.removeLayer(origLayer); map.removeLayer(origLabels); } }
+document.getElementById("origBtn").onclick = () => { LY.orig = !LY.orig; syncLayers(); applyLayers(); };
+
+/* ---------- legend ---------- */
+function legend() {
+  const g = document.getElementById("legend"); let h = "";
+  const sw = (c, t, sq) => `<span><i class="sw${sq ? " sq" : ""}" style="background:${c}"></i>${esc(t)}</span>`;
+  if (S.mode === "family") {
+    if (branchList) { h = `<span class="t">${esc(NODES[S.node][1])}, by branch:</span>` + branchList.map((b, k) => sw(k < BR.length && k < branchList.length - (branchList[branchList.length - 1].startsWith("other") ? 1 : 0) ? BR[k] : "#857f74", b)).join(""); }
+    else h = `<span class="t">Family:</span>` + SITE.legend.map(k => sw(FCOL[FIDX[k]], FAM[FIDX[k]][1])).join("") + sw("#A79C8C", "other families (muted tones)") + sw(SITE.iso_col, "isolates") + `<span><i class="sw" style="background:#fff;border-color:#8d8679"></i>not in a family (sign languages, pidgins and others)</span>`;
+  } else if (S.mode === "aes") h = `<span class="t">Endangerment (Glottolog AES):</span>` + [1, 2, 3, 4, 5, 6, 0].map(k => sw(AESC(k), AESL(k))).join("");
+  else if (S.mode === "speakers") h = `<span class="t">Speakers (Wikidata):</span><span>circle area proportional to the count, coloured by family; small grey dots have no count</span>`;
+  else { const bins = S.mode === "divn" ? [1, 3, 6, 10, 20, 35, 60, 100] : [1, 2, 3, 4, 6, 9, 14, 20];
+    h = `<span class="t">${S.mode === "divn" ? "Living languages" : "Separate lineages"} per ${R.grid.cell_km} km square:</span>` + bins.map((b, k) => sw(gridCol(b, S.mode), k < bins.length - 1 ? `${b}${bins[k + 1] - 1 > b ? " to " + (bins[k + 1] - 1) : ""}` : b + "+", 1)).join("") + `<span>zoom in to see each language as a dot</span>`; }
+  if (LY.orig) h += `<span class="t" style="margin-left:6px">Origins:</span><span>${star("#C77A1F", 14)} proposed homeland</span><span>${diamond("#C77A1F")} diversity hotspot</span><span>${ring("#C77A1F")} present centre</span>`;
+  g.innerHTML = h;
+}
+
+/* ---------- side panel: the family tree ---------- */
+const side = document.getElementById("side");
+function countsOf(idx) { const a = [0, 0, 0, 0, 0, 0, 0]; let sp = 0, nsp = 0; idx.forEach(i => { const l = LG[i]; a[[1, 2, 3, 4, 5, 6, 0].indexOf(l[5])]++; if (l[6]) { sp += l[6]; nsp++; } }); return { a, sp, nsp }; }
+function aesBar(a, n) { return `<div class="aesbar">${[1, 2, 3, 4, 5, 6, 0].map((k, j) => a[j] ? `<i style="width:${100 * a[j] / n}%;background:${AESC(k)}" title="${esc(AESL(k))}: ${a[j]}"></i>` : "").join("")}</div><div class="sub">${[1, 2, 3, 4, 5, 6].map((k, j) => a[j] ? `${a[j]} ${AESL(k)}` : "").filter(Boolean).join(" · ")}</div>`; }
+function membersIdx(node) { const o = []; LG.forEach((l, i) => { if (l[9].includes(node)) o.push(i); }); return o; }
+function crumbs(path) { return `<div class="crumbs"><a onclick="pickRoot()">All families</a>${path.map(j => ` › <a onclick="pickNode(${j},false)">${esc(NODES[j][1])}</a>`).join("")}</div>`; }
+function homeHtml(gc) {
+  const hs = SITE.homelands.filter(h => h.node === gc); if (!hs.length) return "";
+  return `<h4>Proposed homelands</h4>` + hs.map(h => `<div class="hl"><b>${esc(h.hyp)}</b>${esc(h.place)}; ${esc(h.date)}.<br><span style="color:var(--muted)">${h.refs.split(";").map(r => esc(SITE.refs[r].split(") ")[0] + ")")).join("; ")}</span></div>`).join("") + `<span class="go" onclick="LY.orig=true;syncLayers();applyLayers();">Show homelands on the map</span>`;
+}
+const ll = p => `${Math.abs(p[0]).toFixed(1)}°${p[0] >= 0 ? "N" : "S"} ${Math.abs(p[1]).toFixed(1)}°${p[1] >= 0 ? "E" : "W"}`;
+function pickRoot() {
+  S.node = null; S.lang = null; S.iso = false; branchOf = null; branchList = null; setHi(null); restyle(); legend();
+  const fams = FAM.map((f, i) => [i, f]);
+  side.innerHTML = `<h4>Family tree browser</h4><div class="big">${fmt(R.counts.spoken)} spoken languages</div><div class="sub">in ${fmt(R.counts.families)} families and ${fmt(R.counts.isolates)} isolates, plus ${fmt(R.counts.other_nonfamily)} sign languages, pidgins and others. Click a family to see its branches on the map.</div>
+  <ul class="kids">${fams.map(([i, f]) => `<li onclick="pickNode(${NIDX[f[0]]},true)"><span class="sw" style="background:${f[2]}"></span><span class="nm">${esc(f[1])}</span><span class="ct">${fmt(f[3])}</span></li>`).join("")}
+  <li onclick="pickIsolates()"><span class="sw" style="background:${SITE.iso_col}"></span><span class="nm">Isolates</span><span class="ct">${fmt(R.counts.isolates)}</span></li>
+  ${NODES.map((n, j) => n[5] ? `<li class="lg" onclick="pickNode(${j},true)"><span class="sw" style="background:#fff;border-color:#8d8679"></span><span class="nm">${esc(n[1])}</span><span class="ct">${fmt(n[3])}</span></li>` : "").join("")}</ul>`;
+}
+function pickIsolates() {
+  S.node = null; S.lang = null; S.iso = true; branchOf = null; branchList = null; setHi(null); restyle(); legend();
+  const idx = []; LG.forEach((l, i) => { if (l[4] === -1) idx.push(i); }); idx.sort((a, b) => LG[a][1].localeCompare(LG[b][1]));
+  const c = countsOf(idx);
+  side.innerHTML = `<div class="crumbs"><a onclick="pickRoot()">All families</a> › Isolates</div><div class="big">Isolates</div><div class="sub">${fmt(idx.length)} languages with no proven relatives, ${fmt(R.counts.isolates_living)} of them still spoken.</div>${aesBar(c.a, idx.length)}
+  <ul class="kids">${idx.map(i => `<li class="lg" onclick="pickLang(${i},true)"><span class="sw" style="background:${AESC(LG[i][5])}"></span><span class="nm">${esc(LG[i][1])}</span><span class="ct">${esc(LG[i][10].split(";")[0])}</span></li>`).join("")}</ul>`;
+  fitIdx(idx);
+}
+function fitIdx(idx) {
+  const pts = idx.map(i => LG[i]).filter(l => l[2] != null).map(l => [l[2], l[3]]); if (!pts.length) return;
+  if (pts.length === 1) { map.setView(pts[0], Math.max(map.getZoom(), 6)); return; }
+  map.fitBounds(L.latLngBounds(pts).pad(.08), { maxZoom: 7 });
+}
+function pickNode(j, fit) {
+  S.node = j; S.lang = null; S.iso = false; setHi(null);
+  const kids = (KIDS[j] || []).slice().sort((a, b) => NODES[b][3] - NODES[a][3]);
+  const idx = membersIdx(j);
+  // colour by the deep branches: if one branch holds 80% or more and there are no more than three, use its sub-branches
+  let ck = kids.filter(k => !NODES[k][1].startsWith("Unclassified"));
+  while (ck.length && ck.length <= 3 && NODES[ck[0]][3] >= .8 * idx.length && (KIDS[ck[0]] || []).length >= 2) ck = ck.slice(1).concat(KIDS[ck[0]]).filter(k => !NODES[k][1].startsWith("Unclassified")).sort((a, b) => NODES[b][3] - NODES[a][3]);
+  const direct = idx.filter(i => LG[i][9][LG[i][9].length - 1] === j).sort((a, b) => LG[a][1].localeCompare(LG[b][1]));
+  // colour members by the child branch they fall in (largest 12 named), direct languages in their own colour
+  const order = ck.slice(0, BR.length), oset = new Map(order.map((k, n) => [k, n]));
+  branchOf = {}; idx.forEach(i => { const hit = LG[i][9].find(x => oset.has(x)); branchOf[i] = hit == null ? -1 : oset.get(hit); });
+  branchList = order.map(k => NODES[k][1]); if (idx.some(i => branchOf[i] < 0)) branchList.push(ck.length > BR.length ? "other branches and languages" : "other languages in this group");
+  if (S.mode !== "family") { branchOf = null; branchList = null; }
+  restyle(); legend();
+  const n = NODES[j], c = countsOf(idx), path = []; let p = n[2]; while (p >= 0) { path.unshift(p); p = NODES[p][2]; }
+  const gc = n[0], isTop = n[2] < 0 && !n[5], ce = SITE.centres[gc];
+  side.innerHTML = crumbs(path) + `<div class="big">${esc(n[1])}</div><div class="sub">${n[5] ? "Not a genealogical family: a group Glottolog keeps for languages of this kind." : isTop ? "Top-level family" : "Subgroup"} · ${fmt(idx.length)} languages, ${fmt(n[4])} living · <a href="https://glottolog.org/resource/languoid/id/${gc}" target="_blank" rel="noopener">Glottolog</a></div>
+  ${aesBar(c.a, idx.length)}<div class="sub">Speakers counted (Wikidata): ${c.nsp ? fmt(c.sp) + " across " + fmt(c.nsp) + " languages" : "none"}</div>
+  ${homeHtml(gc)}${ce && ce.hotspot ? `<div class="sub" style="margin-top:8px">Computed from Glottolog: the centre of its living languages today is at ${ll(ce.centre)}; its deepest branches crowd most closely near ${esc(ce.hotspot_lang)} (${ce.hotspot_branches} of ${ce.n_branches} within 500 km). <span class="go" onclick="LY.orig=true;syncLayers();applyLayers();">Show on the map</span></div>` : ""}
+  ${kids.length ? `<h4>Branches</h4><ul class="kids">${kids.map(k => { const b = order.indexOf(k); return `<li onclick="pickNode(${k},true)"><span class="sw" style="background:${S.mode === "family" ? (b >= 0 ? BR[b] : (order.some(o => NODES[o][2] === k) ? "conic-gradient(" + BR.slice(0, 4).join(",") + ")" : "#857f74")) : "var(--muted)"}"></span><span class="nm">${esc(NODES[k][1])}</span><span class="ct">${fmt(NODES[k][3])}</span></li>`; }).join("")}</ul>` : ""}
+  ${direct.length ? `<h4>Languages</h4><ul class="kids">${direct.map(i => `<li class="lg" onclick="pickLang(${i},true)"><span class="sw" style="background:${AESC(LG[i][5])}" title="${esc(AESL(LG[i][5]))}"></span><span class="nm">${esc(LG[i][1])}</span><span class="ct">${LG[i][6] ? fmt(LG[i][6]) : ""}</span></li>`).join("")}</ul>` : ""}`;
+  side.scrollTop = 0;
+  if (fit) fitIdx(idx);
+}
+function setHi(i) {
+  if (hiMarker) { map.removeLayer(hiMarker); hiMarker = null; }
+  if (i == null || LG[i][2] == null) return;
+  hiMarker = L.circleMarker([LG[i][2], LG[i][3]], { renderer: dotR, radius: 11, color: isDark() ? "#fff" : "#1E1C26", weight: 2.5, fill: false, interactive: false }).addTo(map);
+}
+function pickLang(i, pop, ll) {
+  const l = LG[i]; S.lang = i;
+  const par = l[9].length ? l[9][l[9].length - 1] : null;
+  if (par != null && S.node !== par) { pickNode(par, false); S.lang = i; }
+  else if (par == null && !S.iso && l[4] === -1) { pickIsolates(); }
+  setHi(i);
+  const path = l[9]; const d = DIAL ? (DIAL[l[0]] || []) : null;
+  side.innerHTML = (l[4] === -1 ? `<div class="crumbs"><a onclick="pickRoot()">All families</a> › <a onclick="pickIsolates()">Isolates</a></div>` : crumbs(path)) +
+   `<div class="big">${esc(l[1])}</div><div class="sub">${l[13] ? "also " + esc(l[13]) + " · " : ""}${l[14] ? esc(l[14]) + " · " : ""}${esc(l[10])}</div>
+   <div class="kv"><span>Status</span><span><i class="sw sq" style="background:${AESC(l[5])};vertical-align:-1px"></i> ${esc(AESL(l[5]))}</span>
+   <span>Speakers</span><span>${l[6] ? fmt(l[6]) + (l[7] ? " (" + l[7] + ")" : " (undated)") : "no count in Wikidata"}</span>
+   <span>Countries</span><span>${esc(l[11].split(";").filter(Boolean).map(c => SITE.countries[c] ? SITE.countries[c].name : c).join(", ") || "none listed")}</span>
+   <span>Codes</span><span>${l[8] ? "ISO 639-3 " + esc(l[8]) + " · " : ""}<a href="https://glottolog.org/resource/languoid/id/${l[0]}" target="_blank" rel="noopener">${l[0]}</a></span>
+   <span>Location</span><span>${l[2] != null ? f1(l[2]) + ", " + f1(l[3]) : "not given"}</span></div>
+   ${l[4] === -1 ? "<div class='sub'>An isolate: a language with no proven relatives.</div>" : ""}
+   <h4>Dialects (${fmt(l[12])})</h4><div id="dials" class="sub">${l[12] ? (d ? esc(d.slice(0, 60).join(", ")) + (d.length > 60 ? ", …" : "") : "loading...") : "none listed"}</div>
+   ${par != null ? `<div style="margin-top:10px"><span class="go" onclick="pickNode(${par},true)">Back to ${esc(NODES[par][1])}</span></div>` : ""}`;
+  side.scrollTop = 0;
+  if (l[12] && !DIAL) loadDial().then(() => { if (S.lang === i) { const dd = DIAL[l[0]] || []; const e = document.getElementById("dials"); if (e) e.textContent = dd.slice(0, 60).join(", ") + (dd.length > 60 ? ", …" : ""); } });
+  if (l[2] != null) { if (pop) map.setView([l[2], l[3]], Math.max(map.getZoom(), 5)); L.popup({ offset: [0, -4] }).setLatLng(ll || [l[2], l[3]]).setContent(popupHtml(i)).openOn(map); }
+}
+let dialP = null; const loadDial = () => dialP || (dialP = fetch("data/dialects.json").then(r => r.json()).then(j => { DIAL = j; }));
+let NIDX = {};
+
+/* ---------- modes ---------- */
+function setMode(m) {
+  S.mode = m; document.querySelectorAll("#modeRow .btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === m));
+  if (S.node != null && m === "family") { const j = S.node, l = S.lang; pickNode(j, false); if (l != null) pickLang(l, false); }
+  else if (m !== "family") { branchOf = null; branchList = null; }
+  showGrid(); restyle(); legend();
+}
+document.querySelectorAll("#modeRow .btn").forEach(b => b.onclick = () => setMode(b.dataset.m));
+map.on("zoomend", () => { restyle(); placeNames(); });
+map.on("moveend", placeNames);
+
+/* ---------- search ---------- */
+const q = document.getElementById("q"), sug = document.getElementById("sug"); let hits = [], hsel = 0, IDX = null;
+function buildIndex() {
+  IDX = [];
+  LG.forEach((l, i) => { IDX.push([norm(l[1]), l[1], "language" + (l[4] >= 0 ? ", " + FAM[l[4]][1] : l[4] === -1 ? ", isolate" : ""), () => pickLang(i, true), l[6] || 0]);
+    if (l[13]) IDX.push([norm(l[13]), l[13], "language (" + l[1] + ")", () => pickLang(i, true), l[6] || 0]);
+    if (l[8]) IDX.push([l[8], l[8].toUpperCase(), "ISO code of " + l[1], () => pickLang(i, true), 0]); });
+  NODES.forEach((n, j) => IDX.push([norm(n[1]), n[1], (n[2] < 0 ? "family" : "branch of " + NODES[n[2]][1]) + ", " + fmt(n[3]) + " languages", () => pickNode(j, true), 1e12 + n[3] * 1e6]));
+  Object.entries(SITE.countries).forEach(([k, c]) => IDX.push([norm(c.name), c.name, `country, ${fmt(c.n)} living languages`, () => map.fitBounds([[c.bbox[1], c.bbox[0]], [c.bbox[3], c.bbox[2]]]), 5e11]));
+}
+function norm(s) { return String(s).normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
+function search() {
+  const t = norm(q.value); if (!IDX || t.length < 2) { sug.style.display = "none"; return; }
+  const a = IDX.filter(x => x[0].startsWith(t)), b = IDX.filter(x => !x[0].startsWith(t) && x[0].includes(t));
+  hits = a.sort((x, y) => y[4] - x[4]).concat(b.sort((x, y) => y[4] - x[4])).slice(0, 14); hsel = 0;
+  sug.innerHTML = hits.map((h, k) => `<li role="option" aria-selected="${k === 0}" data-k="${k}">${esc(h[1])} <span>${esc(h[2])}</span></li>`).join("") || `<li><span>No match</span></li>`;
+  sug.style.display = "block";
+}
+q.addEventListener("input", search);
+q.addEventListener("keydown", e => { if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); hsel = (hsel + (e.key === "ArrowDown" ? 1 : hits.length - 1)) % Math.max(1, hits.length); sug.querySelectorAll("li").forEach((li, k) => li.setAttribute("aria-selected", k === hsel)); }
+  if (e.key === "Enter" && hits[hsel]) { hits[hsel][3](); sug.style.display = "none"; q.blur(); } if (e.key === "Escape") sug.style.display = "none"; });
+sug.addEventListener("click", e => { const li = e.target.closest("li[data-k]"); if (!li) return; hits[+li.dataset.k][3](); sug.style.display = "none"; });
+document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+
+/* ---------- load ---------- */
+const ZOOMS = { newguinea: [[-11, 130], [0, 156]], australia: [[-44, 112], [-9, 155]], americas: [[-56, -130], [62, -32]] };
+function goCta(a) {
+  const d = a.dataset;
+  if (d.mode) setMode(d.mode); else if (d.node || d.iso) setMode("family");
+  if (d.orig) { LY.orig = true; syncLayers(); applyLayers(); }
+  if (d.node) { const id = d.node; const li = LG.findIndex(l => l[0] === id); if (NIDX[id] != null) pickNode(NIDX[id], true); else if (li >= 0) pickLang(li, true); }
+  if (d.iso) pickIsolates();
+  if (d.zoomto) map.fitBounds(ZOOMS[d.zoomto]); else if (d.mode && !d.node) map.setView([15, 20], small() ? 1 : 2);
+}
+Promise.all([fetch("data/langs.json").then(r => r.json()), fetch("data/tree.json").then(r => r.json())]).then(([a, b]) => {
+  LG = a.L; NODES = b.N; KIDS = {}; NODES.forEach((n, j) => { NIDX[n[0]] = j; if (n[2] >= 0) (KIDS[n[2]] = KIDS[n[2]] || []).push(j); });
+  buildDots(); buildIndex(); pickRoot(); restyle();
+  document.querySelectorAll(".cta a[href='#atlas']").forEach(a => a.addEventListener("click", () => setTimeout(() => goCta(a), 50)));
+  window.dataReady = true;
+});
+setTiles();
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; setTiles(); borders.setStyle({ color: isDark() ? "#6a6d78" : "#9d968a" }); redraws.forEach(f => f()); if (origLayer.getLayers().length) { buildOrig(); } };
+
+/* ---------- charts ---------- */
+const AX = () => isDark() ? "#5a5d68" : "#cfc7b8";
+// families
+resp(document.getElementById("famChart"), (W, sm) => {
+  const rows = R.top_families, lw = sm ? 150 : 210, rh = 24, H = rows.length * rh + 26, mx = rows[0].n, x = v => lw + (W - lw - 60) * v / mx;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, document.getElementById("famChart"));
+  rows.forEach((r, k) => { const y = k * rh + 4, c = FCOL[FIDX[r.id]];
+    const g = el("g", { style: "cursor:pointer" }, svg);
+    el("rect", { x: lw, y, width: x(r.n) - lw, height: rh - 7, fill: mix(c, isDark() ? "#14161b" : "#ffffff", .55) }, g);
+    el("rect", { x: lw, y, width: x(r.living) - lw, height: rh - 7, fill: c }, g);
+    lbl(g, lw - 8, y + rh / 2, sm && r.name.length > 19 ? r.name.slice(0, 18) + "…" : r.name, "lab", "end");
+    lbl(g, x(r.n) + 6, y + rh / 2, fmt(r.n), "lab m");
+    tipOn(g, `<b>${esc(r.name)}</b><br>${fmt(r.n)} languages (${f1(r.pct)}% of all), ${fmt(r.living)} living`);
+    g.addEventListener("click", () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setMode("family"); pickNode(NIDX[r.id], true); }); });
+  lbl(svg, lw, H - 4, "Spoken languages (pale: extinct)", "lab s m");
+});
+// countries
+resp(document.getElementById("ctyChart"), (W, sm) => {
+  const rows = R.countries.top_n, lw = sm ? 112 : 160, rh = 24, H = rows.length * rh + 22, mx = rows[0].n, rc = sm ? 62 : 90, x = v => lw + (W - lw - rc - 46) * v / mx;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, document.getElementById("ctyChart"));
+  rows.forEach((r, k) => { const y = k * rh + 4; const g = el("g", {}, svg);
+    el("rect", { x: lw, y, width: x(r.n) - lw, height: rh - 8, fill: css("--hot"), opacity: .85 }, g);
+    lbl(g, lw - 8, y + rh / 2, r.name.replace("United States of America", "United States").replace("Dem. Rep. Congo", "DR Congo"), "lab", "end");
+    lbl(g, x(r.n) + 6, y + rh / 2, fmt(r.n), "lab m");
+    lbl(g, W - 4, y + rh / 2, fmt(r.lineages), "lab b", "end").setAttribute("style", `fill:${css("--gold")}`);
+    tipOn(g, `<b>${esc(r.name)}</b><br>${fmt(r.n)} living languages<br>${fmt(r.lineages)} lineages (${fmt(r.families)} families, ${fmt(r.isolates)} isolates)`); });
+  lbl(svg, W - 4, H - 4, "lineages", "lab s m", "end"); lbl(svg, lw, H - 4, "living languages", "lab s m");
+});
+// endangerment by macroarea
+resp(document.getElementById("aesChart"), (W, sm) => {
+  const rows = R.macro, lw = sm ? 104 : 130, rh = 34, H = rows.length * rh + 44, x0 = lw, x1 = W - 8;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, document.getElementById("aesChart")); const K = [1, 2, 3, 4, 5, 6, 0];
+  rows.forEach((r, k) => { const y = k * rh + 4; let a = 0;
+    lbl(svg, lw - 8, y + 11, r.name, "lab", "end"); lbl(svg, lw - 8, y + 24, fmt(r.n) + " langs", "lab s m", "end");
+    K.forEach((s, j) => { const v = r.counts[j]; if (!v) return; const w = (x1 - x0) * v / r.n; const re = el("rect", { x: x0 + (x1 - x0) * a / r.n, y, width: w, height: rh - 10, fill: AESC(s) }, svg); a += v;
+      tipOn(re, `<b>${esc(r.name)}</b><br>${esc(AESL(s))}: ${fmt(v)} (${f1(100 * v / r.n)}%)`); if (w > 34 && s !== 0) lbl(svg, x0 + (x1 - x0) * (a - v / 2) / r.n, y + (rh - 10) / 2 + 4, Math.round(100 * v / r.n) + "%", "lab s", "middle").setAttribute("style", `fill:${s >= 4 || s === 1 ? "#fff" : "#1E1C26"}`); }); });
+  let xx = lw; K.slice(0, 6).forEach(s => { el("rect", { x: xx, y: H - 30, width: 10, height: 10, fill: AESC(s) }, svg); const t = lbl(svg, xx + 14, H - 21, AESL(s), "lab s m"); xx += 22 + AESL(s).length * 6.6; if (xx > W - 90 && s < 6) { xx = lw; } });
+});
+// speakers
+resp(document.getElementById("spChart"), (W, sm) => {
+  const rows = R.speakers.top.slice(0, 20), lw = sm ? 128 : 170, rh = 22, H = rows.length * rh + 10, mx = rows[0].n, x = v => lw + (W - lw - 112) * v / mx;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, document.getElementById("spChart"));
+  rows.forEach((r, k) => { const y = k * rh + 4, li = FAM.findIndex(f => f[1] === r.family), c = li >= 0 ? FCOL[li] : SITE.iso_col; const g = el("g", {}, svg);
+    el("rect", { x: lw, y, width: x(r.n) - lw, height: rh - 7, fill: c }, g);
+    lbl(g, lw - 8, y + rh / 2 - 1, r.name.replace(" Chinese", ""), "lab", "end");
+    lbl(g, x(r.n) + 6, y + rh / 2 - 1, `${fmt(r.n / 1e6)}m${r.year ? " (" + r.year + ")" : ""}`, "lab m");
+    tipOn(g, `<b>${esc(r.name)}</b><br>${esc(r.family)}<br>${fmt(r.n)} speakers${r.year ? " (" + r.year + ")" : ", undated"}`); });
+});
+// homelands table and distance chart
+(function () {
+  const t = document.getElementById("homeTable"); const H = SITE.homelands;
+  t.innerHTML = `<thead><tr><th>Family</th><th>Hypothesis and place</th><th>When</th><th>Sources</th></tr></thead><tbody>` + H.map(h => `<tr><td><span class="sw" style="background:${famColorByNode(h.node)};vertical-align:-1px"></span> ${esc(h.family)}</td><td><b>${esc(h.hyp)}</b>: ${esc(h.place)}</td><td>${esc(h.date)}</td><td>${h.refs.split(";").map(r => esc(SITE.refs[r].split(") ")[0] + ")")).join("; ")}</td></tr>`).join("") + `</tbody>`;
+  const keys = [...new Set(H.flatMap(h => h.refs.split(";")))].sort((a, b) => SITE.refs[a].localeCompare(SITE.refs[b]));
+  document.getElementById("refList").innerHTML = keys.concat(["sapir1916"]).filter((k, i, a) => a.indexOf(k) === i).map(k => `<li>${esc(SITE.refs[k])}</li>`).join("");
+})();
+resp(document.getElementById("origChart"), (W, sm) => {
+  const rows = R.origins.rows, lw = sm ? 150 : 270, rh = 24, H = rows.length * rh + 34, mx = 3500, x = v => lw + (W - lw - 20) * Math.min(v, mx) / mx;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}` }, document.getElementById("origChart"));
+  [0, 500, 1000, 2000, 3000].forEach(v => { el("line", { x1: x(v), x2: x(v), y1: 0, y2: H - 22, stroke: AX(), "stroke-width": v === 500 ? 1.4 : .7, "stroke-dasharray": v === 500 ? "4 3" : "" }, svg); lbl(svg, x(v), H - 6, fmt(v) + (v === 3000 ? " km" : ""), "lab s m", "middle"); });
+  rows.forEach((r, k) => { const y = k * rh + 12, c = famColorByNode(r.node); const g = el("g", {}, svg);
+    lbl(g, lw - 8, y + 4, sm ? `${r.family.replace("Indo-European", "IE").replace("Afro-Asiatic", "AA").replace("Uto-Aztecan", "UA")}: ${r.hyp.replace(" hypothesis", "").replace(" origin", "")}` : `${r.family}: ${r.hyp.replace(" hypothesis", "")}`, "lab", "end");
+    el("line", { x1: x(r.km_hotspot), x2: x(r.km_centre), y1: y, y2: y, stroke: c, "stroke-width": 2, opacity: .45 }, g);
+    el("circle", { cx: x(r.km_centre), cy: y, r: 5, fill: css("--card"), stroke: c, "stroke-width": 2.2 }, g);
+    el("circle", { cx: x(r.km_hotspot), cy: y, r: 5.5, fill: c }, g);
+    tipOn(g, `<b>${esc(r.family)}: ${esc(r.hyp)}</b><br>Diversity hotspot ${fmt(r.km_hotspot)} km away<br>Present centre ${fmt(r.km_centre)} km away`); });
+});
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

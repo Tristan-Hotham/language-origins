@@ -1,0 +1,240 @@
+glottocode,family,n_spoken_languages,n_living,present_centre_lat,present_centre_lon,n_deep_branches,hotspot_lat,hotspot_lon,hotspot_language,deep_branches_within_500km,branch_centre_lat,branch_centre_lon,deep_branches
+atla1278,Atlantic-Congo,1408,1367,2.882,13.73,7,11.467,-15.135,Biafada,5,9.984,-9.401,Cangin; Gola; Limba; Mansoanka; Mel; North-Central Atlantic; Volta-Congo
+aust1307,Austronesian,1276,1226,-3.24,135.119,10,20.77,121.85,Itbayat,10,20.893,122.546,Atayalic; Bunun; East Formosan; Malayo-Polynesian; Northwest Formosan; Paiwan; Puyuma; Rukai; Tsouic; Western Plains Austronesian
+indo1319,Indo-European,586,485,39.961,51.459,10,42.709,18.024,Dalmatian,6,45.653,29.853,Albanian; Anatolian; Armenic; Balto-Slavic; Celtic; Germanic; Graeco-Phrygian; Indo-Iranian; Italic; Tokharian
+narr1281,Narrow Bantu,563,557,-4.905,24.558,4,1.724,11.615,Fang (Equatorial Guinea),3,-1.309,18.853,Bantu A-B10-B20-B30; Central-Western Bantu; East Bantu; Mbam-Bubi
+sino1245,Sino-Tibetan,518,496,26.243,95.6,19,25.732,93.046,Hills Karbi,15,26.842,94.18,Bodic; Brahmaputran; Burmo-Qiangic; Dhimal-Lhokpu-Toto; Digarish; Gongduk; Himalayish; Karenic; Kho-Bwa; Kman-Meyor; Kuki-Chin-Naga; Macro-Bai; Macro-Tani; Miji; Mruic; Nungish; Olekha; Raji-Raute; Sinitic
+afro1255,Afro-Asiatic,381,332,14.32,20.91,5,10.539,12.995,Marghi South,2,20.282,25.254,Berber; Chadic; Cushitic; Egyptian; Semitic
+nucl1709,Nuclear Trans New Guinea,317,315,-5.599,144.27,10,-6.133,143.478,Angal Heneng,9,-5.54,142.927,Asmat-Awyu-Ok; Chimbu-Wahgi; Dani; Enga-Kewa-Huli; Finisterre-Huon; Greater Binanderean; Kainantu-Goroka; Madang; Mek; Paniai Lakes
+pama1250,Pama-Nyungan,250,80,-20.309,134.148,20,-19.29,142.476,Mbara-Yanga,9,-23.157,141.968,Arandic-Thura-Yura; Desert Nyungic; Dyirbal; East Queensland Border Pama Nyungan; Ganaic; Greater Maric; Kala Lagaw Ya; Kalkatungic; Karnic; Macleay-New England; Ngarna; Nyawaygic; Paman; Rockhampton-Gladstone; South-West Pama-Nyungan; Southeastern Pama-Nyungan; Warrgamay; Yarli-Baagandji; Yimidhirr-Yalanji-Yidinic; Yuulngu
+otom1299,Otomanguean,181,175,17.429,-97.269,4,17.884,-96.341,Palantla Chinantec,4,17.046,-95.136,Amuzgo-Mixtecan; Manguean; Popoloca-Zapotecan; Western Otomanguean
+aust1305,Austroasiatic,158,154,16.434,100.683,12,17.914,105.527,Maleng,8,15.942,100.989,Aslian; Bahnaric; Katuic; Khasi-Palaung; Khmeric; Khmuic; Mangic; Monic; Mundaic; Nicobaric; Pearic; Vietic
+taik1256,Tai-Kadai,95,91,22.427,105.156,3,21.645,106.167,Tày,3,21.754,106.547,Hlaic; Kadaic; Kam-Tai
+drav1251,Dravidian,82,76,14.825,78.43,3,19.416,80.006,Aheri Gondi,2,19.533,80.364,Central Dravidian; North Dravidian; South Dravidian
+araw1281,Arawakan,76,45,-5.888,-67.557,7,0.696,-67.503,Curripaco,5,-1.147,-65.146,Alto Orinoco; Caribbean Arawakan; Central-Eastern Maipuran; Japura-Colombia; Medio Rio Negro; Negro-Roraima; Southern Maipuran
+mand1469,Mande,75,73,10.254,-6.735,2,9.726,-7.61,Wojenaka,2,9.9,-5.516,Eastern Mande; Western Mande
+tupi1275,Tupian,70,51,-11.284,-58.079,5,-11.423,-62.436,Puruborá,5,-11.083,-60.82,Arikem-Tupari; Eastern Tupian; Kepkiriwát; Monde; Purubora-Ramarama
+utoa1244,Uto-Aztecan,69,53,24.27,-102.968,2,33.532,-116.691,Cahuilla,2,29.172,-108.273,Northern Uto-Aztecan; Southern Uto-Aztecan
+cent2225,Central Sudanic,63,60,6.407,24.423,5,4.659,29.59,Baka (South Sudan),5,3.735,27.692,Lenduic; Mangbetu-Asua; Membi-Mangbutu-Efe; Moru-Madi; Sara-Bongo-Bagirmi
+nilo1247,Nilotic,56,55,3.322,33.253,3,3.863,33.476,Okolie,3,2.805,33.535,Eastern Nilotic; Southern Nilotic; Western Nilotic
+nucl1708,Nuclear Torricelli,55,55,-3.54,142.556,9,-3.61,142.56,Ambrak,9,-3.598,142.594,Beli (Papua New Guinea); Kombio-Arapesh-Urat; Laeko-Libuat; Marienberg; Nuclear Maimai; Urim; Wapei-Palei; West Wapei; Wom (Papua New Guinea)
+ural1272,Uralic,49,41,64.373,44.443,9,64.412,61.344,Northern Mansi,4,60.911,47.293,Finnic; Hungaric; Khantyic; Mansic; Mari; Mordvin; Permian; Saami; Samoyedic
+algi1248,Algic,47,30,48.777,-86.238,3,41.326,-123.824,Yurok,2,43.848,-111.293,Algonquian-Blackfoot; Wiyot; Yurok
+atha1245,Athabaskan-Eyak-Tlingit,46,31,57.285,-127.387,3,60.782,-136.573,Southern Tutchone,3,58.03,-134.39,Athabaskan; Eyak; Tlingit
+pano1259,Pano-Tacanan,45,25,-9.361,-70.717,3,-8.876,-71.82,Yawanawa,3,-9.009,-69.971,Mainline Pano; Mayoruna Branch; Tacanan
+hmon1336,Hmong-Mien,44,43,25.216,107.19,3,24.932,107.61,Baonao,3,24.845,108.217,Mienic; Nuclear Hmongic-Ho Ne; Paheng-Younuo
+quec1387,Quechuan,43,42,-8.865,-75.792,6,-9.571,-75.594,Huallaga Huánuco Quechua,5,-8.635,-76.188,Cajamarca-Lambayeque Quechua; Classical Quechua; Colombia-Ecuador Quechua; Quechua I; San Martin-Amazonas Quechua; Southern Quechua
+turk1311,Turkic,43,39,48.589,63.368,8,53.71,87.845,Mrassu Shor-Tutal,2,49.602,72.146,Bolgar; Khalaj Turkic; Kipchak-Turkestan; Oghuz; Old Turkic; Sakha-Dolgan; South Siberian Turkic; West Yugur
+cari1283,Cariban,42,24,1.126,-60.315,8,1.509,-59.142,Waiwai,5,-0.191,-58.968,Apalaí; Guianan; Kuikuroan; Opon-Yukpan; Parukotoan; Pekodian; Venezuelan Cariban; Yawaperi
+krua1234,Kru,38,38,5.728,-7.371,2,5.725,-7.356,Daho-Doo,2,5.742,-7.03,Eastern Kru; Greater Western Kru
+sepi1257,Sepik,36,36,-4.199,142.457,8,-3.94,142.217,Kalou,8,-4.003,142.149,Abau; Amal; Iwam-Wogamus; Nukuma; Ram; Sepik Hill; Sepik Tama; Yellow River
+nakh1245,Nakh-Daghestanian,36,35,42.131,46.784,6,42.133,47.081,Lak,6,42.04,46.96,Avar-Andic-Tsezic; Dargwic; Khinalug; Lak; Lezgic; Nakh
+maya1287,Mayan,34,31,15.966,-91.331,4,17.021,-91.423,Lacandon,4,16.849,-91.727,Huastecan Mayan; Quichean-Mamean; Western Mayan; Yucatecan
+nucl1710,Nuclear-Macro-Je,29,16,-13.69,-50.712,6,-7.774,-51.674,Mebengokre,2,-14.994,-52.897,Jabuti; Je; Karajá; Maxakali-Borum; Ofayé; Rikbaktsa
+chib1249,Chibchan,27,19,9.456,-77.846,4,8.577,-81.256,Buglere,2,11.033,-81.123,Isthmic Chibchan; Magdalenic; Pech; Votic Chibchan
+tuca1253,Tucanoan,26,19,0.256,-71.041,2,0.022,-70.808,Barasana-Eduria,2,0.095,-72.508,Eastern Tucanoan; Western Tucanoan
+sali1255,Salishan,25,12,49.572,-120.883,3,49.25,-122.444,Halkomelem,3,49.836,-122.78,Bella Coola; Coast Salish; Interior Salish
+ramu1234,Ramu,24,24,-4.491,144.731,6,-4.589,144.689,Romkun,6,-4.607,144.618,Agoan; Aian; Banaro; Goam; Lower Ramu; Rao
+timo1261,Timor-Alor-Pantar,23,22,-8.372,124.859,3,-8.291,125.078,Sawila,3,-8.625,125.545,Alor-Pantar; Bunak; East Timor
+lake1255,Lakes Plain,20,19,-2.991,137.805,3,-2.92,137.68,Biritai,3,-2.917,137.76,East Lakes Plain; Far West Lakes Plain; Tariku
+dogo1299,Dogon,20,20,14.517,-3.274,5,14.63,-3.15,Yanda Dom Dogon,5,14.525,-3.24,Escarpment Dogon; Nangan Dogon; North Plateau Dogon; Plains Dogon; West Dogon
+gong1255,Ta-Ne-Omotic,19,19,6.885,36.746,4,7.34,36.172,Kafa,4,7.406,36.446,Bench; Kefoid; Ometo; Yemsa
+more1255,Yam,19,18,-8.674,141.405,2,-8.808,141.253,Warta Thuntai,2,-8.7,141.214,Kanum; Morehead-Maro
+mixe1284,Mixe-Zoque,19,18,17.343,-94.753,2,16.948,-95.068,Isthmus Mixe,2,17.252,-94.505,Mixe; Zoque
+siou1252,Siouan,18,8,46.627,-101.755,5,46.83,-101.0,Mandan,3,41.546,-93.237,Catawban; Mandan; Mississippi Valley; Missouri River Siouan; Ohio Valley Siouan
+mong1349,Mongolic-Khitan,17,14,44.123,103.682,6,48.324,106.289,Halh Mongolian,2,45.47,101.675,Dagur; Eastern Mongolic; Kitan; Middle Mongol; Mogholi; Southern Periphery Mongolic
+japo1237,Japonic,17,16,28.731,129.171,3,27.774,128.961,Toku-No-Shima,2,31.198,133.081,Hachijo; Japanesic; Ryukyuan
+anim1240,Anim,17,16,-7.671,142.114,3,-7.37,141.452,Zimakani,3,-7.715,142.211,Inland Gulf of Papua; Marind-Boazi-Yaqai; Tirio
+nort2923,North Halmahera,15,15,1.171,127.756,4,1.007,127.493,Sahu,4,0.885,127.657,Mainland North Halmaheran; Sahuan; Ternatean; West Makian
+bord1247,Border,15,15,-3.16,141.068,3,-2.991,141.02,Manem,3,-3.073,141.002,Bewani; Taikat-Awyi; Warisic
+tung1282,Tungusic,15,13,52.877,127.999,3,47.585,132.48,Kilen,3,51.356,127.179,Central-Western Tungusic; Manchu-Jurchen; Northeastern Tungusic
+khoe1240,Khoe-Kwadi,14,12,-21.857,22.295,3,-22.094,20.746,Naro,2,-21.193,17.99,Khoekhoe; Kwadi; Non-Khoekhoe
+toro1256,Tor-Orya,13,13,-2.218,139.227,7,-2.248,139.297,Jofotek-Bromnya,7,-2.287,139.228,Berik; Coastal Tor; Itik; Kwesten; Mander; Maremgi; Orya
+nduu1242,Ndu,13,13,-4.024,143.09,3,-4.035,143.015,Burui,3,-3.994,143.028,Boikin; Ngala; Nuclear Ndu
+anga1289,Angan,13,13,-7.182,146.008,6,-7.174,146.071,Menya,6,-7.179,146.006,Angaataha; Ankave-Tainae-Akoye; Baruya-Simbari; Kapau-Menya; Wojokesic; Yagwoia
+nubi1251,Nubian,13,10,14.305,29.806,3,15.083,30.417,Haraza,3,16.062,29.378,Central Nubian; Midob; Nile Nubian
+miwo1274,Miwok-Costanoan,13,2,38.159,-120.382,2,37.436,-121.828,San Francisco Bay Ohlone,2,37.685,-121.654,Costanoan; Miwokan
+toto1251,Totonacan,13,13,20.437,-97.714,2,20.457,-97.949,Ozumatlán Totonac,2,20.521,-97.833,Tepehua; Totonac
+eski1264,Eskimo-Aleut,13,11,70.92,-135.693,4,65.518,-171.755,Naukan Yupik,3,66.57,-162.648,Aleutic; Inuit; Old Sirenik; Yupik
+gunw1250,Gunwinyguan,12,7,-13.506,134.52,6,-12.961,134.308,Rembarrnga,6,-13.185,133.857,Bininj Kun-Wok; Eastern Gunwinyguan; Jala; Kunbarlang; Ngalkbun; Western Gunwinyguan
+chap1271,Chapacuran,12,4,-11.372,-64.393,2,-12.1,-63.1,Wanyam,2,-12.952,-63.041,Moreic-Waric; Tapakuric
+coch1271,Cochimi-Yuman,12,9,32.974,-114.875,3,32.376,-114.848,Cocopa,3,30.91,-114.736,Cochimic; General Yuman; Kiliwa
+surm1244,Surmic,11,11,6.045,34.644,3,6.165,34.944,Kacipo-Balesi,3,6.496,34.856,Majang; Southeast Surmic; Southwest Surmic
+iroq1247,Iroquoian,11,6,41.79,-77.411,3,42.41,-76.597,Cayuga,1,38.357,-78.909,Cherokee; Lake Iroquoian; Tuscarora-Nottoway
+skoo1245,Sko,11,11,-2.865,141.573,4,-2.842,141.603,Rawo,4,-2.867,141.558,Barupu Lagoon; I'saka; Serra Hills; Skouic
+west2434,Western Daly,11,7,-13.632,130.124,2,-13.675,130.12,Maranunggu,2,-13.715,130.082,Bringen; Maranunggu-Ame-Manda
+heib1242,Heibanic,11,11,11.138,30.66,5,11.119,30.573,Otoro,5,11.133,30.586,Central Heibanic; Eastern Heibanic; Lute; Shwai; Western Heibanic
+geel1240,Geelvink Bay,10,10,-2.488,136.744,7,-2.414,136.814,Kofei,7,-2.444,136.839,Barapasi-Sauri-Kofei; Bauzi; Burate-Wate; Demisa; Nisa-Anasi; Tefaro; Woria
+worr1236,Worrorran,10,2,-15.618,126.075,3,-14.835,125.72,Wunambal,3,-15.576,125.833,Ngarinyin; Northern Worrorran; Western Worrorran
+ijoi1239,Ijoid,10,10,4.785,6.706,3,4.532,6.695,Kalabari,3,4.76,6.886,Defaka; Eastern Ijo; Western Ijo
+maba1274,Maban,10,9,12.604,21.029,3,12.891,20.889,Maba (Chad),3,12.673,20.905,Maba-Masalit; Mimi-Nachtigal; Runga-Kibet
+sout2948,South Bougainville,10,10,-6.442,155.596,2,-6.46,155.632,Naasioi,2,-6.497,155.607,Buinic; Nasioiic
+song1307,Songhay,10,10,16.763,1.106,2,16.685,2.327,Tadaksahak,2,16.769,1.108,Eastern Songhay; Northwest Songhay
+nyul1248,Nyulnyulan,10,2,-17.295,123.624,2,-17.374,123.228,Nimanbur,2,-17.298,123.034,Eastern Nyulnyulan; Western Nyulnyulan
+grea1241,Great Andamanese,10,0,12.702,92.834,3,12.666,92.828,Akarbale,3,12.662,92.826,Middle Great Andamanese; North Andamanese-Akakede; South Great Andamanese
+saha1256,Saharan,10,8,15.51,14.854,3,13.875,14.844,Kanembu,2,15.74,17.644,Eastern Saharan; Kanuri-Kanembu; Tebu
+choc1280,Chocoan,9,7,6.116,-77.032,3,7.128,-77.574,Northern Emberá,3,6.646,-77.246,Atrato; San Juan; Woun Meu
+daga1274,Dagan,9,9,-9.822,149.493,5,-9.778,149.495,Mapena,5,-9.787,149.496,Central Dagan; Onjob; Southeast Dagan; Turaka; Umanakaina
+tuuu1241,Tuu,9,3,-25.833,19.685,2,-25.545,20.589,Lower-Nosop,2,-27.008,22.5,!Ui; Hua
+mail1249,Mailuan,8,6,-10.116,148.836,6,-10.087,148.835,Binahari-Neme,6,-10.15,148.939,Bauwakic; Binaharic; Domu; Laua; Mailu; Morawa
+kwer1242,Greater Kwerba,8,8,-2.093,138.264,3,-1.849,138.34,Samarokena,3,-1.99,138.349,Isirawa; Kwerbaic; Samarokena-Airoran
+kiow1265,Kiowa-Tanoan,8,6,35.822,-104.881,4,36.428,-105.604,Taos Northern Tiwa,3,35.632,-104.965,Kiowa; Tewa; Tiwa-Piro; Towa
+narr1279,Narrow Talodi,8,7,10.688,30.268,2,10.831,30.253,Lumun,2,10.821,30.284,Buram-Saraf; Lumun-Torona
+koia1260,Koiarian,8,8,-9.2,147.763,2,-9.462,147.899,Barai,2,-9.2,147.763,Baraic; Koiaric
+sout3418,South Bird's Head,8,8,-1.956,132.335,2,-2.08,132.157,Suabo,2,-1.875,132.076,Inanwatanic; Nuclear South Bird's Head
+pomo1273,Pomoan,7,1,38.542,-123.08,3,38.935,-122.599,Southeastern Pomo,3,39.001,-122.709,Northeastern Russian River Pomo; Russian River and Eastern; Southeastern Pomo
+musk1252,Muskogean,7,6,31.703,-89.241,4,32.25,-88.5,Choctaw,4,31.555,-87.587,Alabaman-Koasati; Creek; Mikasuki; Western Muskogean
+bosa1245,Bosavi,7,7,-6.399,142.709,2,-6.309,142.776,Onobasulu,2,-6.319,142.67,Bosavi Watershed; Etoro-Bedamini
+daju1249,Dajuic,7,6,11.209,25.342,2,11.13,25.22,Baygo,2,11.149,26.663,Eastern Dajuic; Western Dajuic
+mata1289,Mataguayan,7,7,-23.102,-61.829,2,-24.219,-61.912,Vejoz,2,-23.36,-61.158,Mataguayo I; Mataguayo II
+chuk1271,Chukotko-Kamchatkan,7,4,62.341,163.954,2,60.384,165.653,Alutor,2,59.815,163.325,Chukotian; Kamchatkan
+huit1251,Huitotoan,7,4,-1.797,-72.511,2,-1.25,-72.5,Nonuya,2,-1.69,-72.477,Nonuya-Ocaina; Nuclear Witotoan
+kiwa1251,Kiwaian,6,6,-7.93,143.858,5,-7.938,143.545,Bamu,5,-7.998,143.811,Bamu; Northeast Kiwai; Southern Kiwai; Turama-Kerewo; Waboda
+araw1282,Arawan,6,5,-7.111,-67.062,4,-6.75,-67.503,Deni,4,-6.441,-66.703,Arawá (Amazonas State); Madi-Madiha; Paumari; Suruahá
+kadu1256,Kadugli-Krongo,6,6,10.945,29.625,4,11.017,29.346,Kanga,4,11.041,29.531,Katcha-Kadugli-Miri-Kanga; Keiga; Krongo-Tumtum; Tulishi
+lowe1423,Lower Sepik,6,6,-4.236,143.82,4,-4.078,144.028,Angoram,4,-4.222,143.756,Angoram; Chambri; Karawarian; Nor
+east2433,East Strickland,6,6,-6.089,142.231,4,-6.155,142.195,Samo,4,-6.039,142.25,Fembe; Konai; Kubo-Samo-Bibo; Odoodee
+chum1262,Chumashan,6,0,34.547,-119.961,3,34.617,-120.08,Ineseño,3,34.607,-120.112,Central Chumashan; Cruzeño; Obispeño
+namb1299,Nambiquaran,6,6,-12.99,-60.236,3,-12.986,-60.101,Mamaindé,3,-13.334,-60.082,Northern Nambiquaran; Sabanê; Southern Nambikuára
+bain1263,Baining,6,5,-4.634,151.961,4,-4.642,151.953,Ura (Papua New Guinea),4,-4.592,151.93,Kairak; Mali-Simbali; Qaqet; Ura (Papua New Guinea)
+left1242,Left May,6,6,-4.292,141.595,4,-4.274,141.601,Nakwi,4,-4.303,141.615,Ama (Papua New Guinea); Iteri-Bo; Nimo-Nakwi; Owiniga
+yano1268,Yanomamic,6,6,2.622,-63.257,3,4.039,-62.78,Ninam,3,3.501,-63.533,Ninam; Sanumá; Yanomam-Yaroame
+barb1265,Barbacoan,6,4,1.07,-78.302,2,1.217,-78.34,Awa-Cuaiquer,2,1.564,-77.743,Awa-Southern Barbacoan; Coconucan
+leng1261,Lengua-Mascoy,6,6,-22.473,-58.306,2,-22.49,-58.38,Sanapaná,2,-22.601,-58.346,Eastern Enlhet-Enenlhet; Lengua
+waka1280,Wakashan,6,5,50.994,-126.865,2,50.927,-127.308,Kwak'wala,2,50.552,-126.472,Northern Wakashan; Southern Wakashan
+zapa1251,Zaparoan,6,3,-2.424,-75.132,2,-3.32,-74.541,Aushiri,2,-2.867,-75.175,Iquito-Arabela; Zaparo-Abishira
+abkh1242,Abkhaz-Adyge,5,4,43.713,41.472,3,43.056,41.159,Abkhaz,3,43.702,40.871,Abkhaz-Abaza; Circassian; Ubykh
+sout2845,South Omotic,5,5,5.717,36.453,3,5.95,36.572,Aari,3,5.799,36.433,Aari-Gayil; Dime; Hamer-Karo
+nimb1257,Nimboranic,5,5,-2.609,140.284,3,-2.573,140.264,Mlap,3,-2.584,140.27,Mekwei; Mlap-Gresi-Kemtuik; Nimboran
+misu1242,Misumalpan,5,3,14.072,-84.072,3,14.126,-84.344,Mayangna,3,14.03,-85.106,Matagalpan; Mískito; Sumuic
+xinc1237,Xincan,5,0,14.163,-90.241,3,14.127,-90.358,Xinca-Sinacantan,3,14.148,-90.27,Xinca Shared Grammatical Traits; Xinca-Guazacapan; Yupiltepequic
+guah1252,Guahiboan,5,5,5.635,-70.584,3,6.346,-71.267,Hitnu,3,5.185,-71.017,Central Guahibo; Guayabero; Hitnu
+mirn1241,Mirndi,5,3,-16.585,133.122,3,-17.165,133.659,Jingulu,3,-16.544,133.229,Jingulu; Ngurlun; Yirram
+kxaa1236,Kxa,5,5,-20.694,19.927,5,-19.688,20.767,South-Eastern Ju,4,-20.694,19.927,Amkoe; Central Ju; North-Central Ju; Northern Ju; South-Eastern Ju
+araf1243,Arafundi,5,5,-4.793,143.681,4,-4.673,143.71,Awiakay-Karimba,4,-4.783,143.655,Andai; Awiakay-Karimba; Nanubae-Imangae; Tapei
+cadd1255,Caddoan,5,3,38.232,-96.622,3,36.286,-96.894,Pawnee,3,35.388,-96.421,Caddo; Pawnee-Kitsai; Wichita
+yeni1252,Yeniseian,5,1,63.755,87.547,4,58.5,92.0,Pumpokol,4,58.219,92.076,Arin; Kott-Assan; Northern Yeniseian; Pumpokol
+koma1264,Koman,5,5,9.071,34.026,3,9.16,34.229,Uduk,3,9.144,34.063,Dana-Opo; Gwama; Komo-Uduk
+kart1248,Kartvelian,5,4,42.197,42.54,3,42.513,41.872,Mingrelian,3,42.218,42.637,Georgic; Svan; Zan
+saha1239,Sahaptian,5,5,45.76,-119.126,3,45.721,-118.424,Northeast Sahaptin,3,45.856,-118.677,Nez Perce; Northern Sahaptin; Southern Sahaptin
+yuat1252,Yuat,5,5,-4.467,143.813,3,-4.47,143.75,Mekmek,3,-4.427,143.773,Changriwa; Mekmek; Miyak-Bun-Biwat
+guai1249,Guaicuruan,5,4,-24.157,-60.006,3,-25.006,-60.154,Pilagá,2,-24.792,-59.766,Abipon; Kadiwéu; Qom
+yare1250,Yareban,5,5,-9.496,148.417,2,-9.602,148.312,Moikodi,2,-9.527,148.414,Doriri-Abia; Yareba-Bariji-Nawaru
+west1493,West Bird's Head,5,5,-1.263,131.661,2,-1.431,131.617,Kalabra,2,-1.247,131.612,Seget-Moi; South West Bird's Head
+kera1258,Keram,5,5,-4.322,144.051,2,-4.351,144.085,Ap Ma,2,-4.317,144.073,East Keram; Ulmapo
+nucl1580,Eleman,5,5,-7.866,145.689,2,-7.86,145.751,Opao,2,-7.89,145.735,Eastern Eleman; Western Eleman
+pauw1244,Pauwasi,5,5,-3.678,140.894,2,-3.742,140.903,Emumu,2,-3.69,140.876,Eastern Pauwasi; Western Pauwasi
+tama1329,Tamaic,4,4,14.135,22.241,2,14.332,21.995,Tama (Chad),2,14.119,22.041,Mararit; Tama-Sungor-Miisiirii
+jiva1245,Chicham,4,4,-3.892,-77.839,2,-3.991,-77.98,Huambisa,2,-4.362,-77.866,Aguaruna; Shuaric
+mang1423,Mangarrayi-Maran,4,3,-15.047,134.216,2,-14.793,134.865,Marra,2,-14.841,134.226,Mangarrayi; Maran
+shas1238,Shastan,4,0,41.333,-122.875,2,41.263,-123.311,Konomihu,2,41.374,-122.908,Konomihu; Nuclear Shastan
+tang1340,Tangkic,4,2,-16.816,139.462,2,-16.562,139.434,Lardil,2,-16.84,139.207,Lardil; Southern Tangkic
+nort2933,North Bougainville,4,4,-5.982,155.049,3,-5.97,154.9,Ramopa,3,-5.947,154.988,Ramopa; Rapoisi; Rotokas-Askopan
+sent1261,Sentanic,4,4,-2.523,140.45,2,-2.454,140.396,Tabla,2,-2.477,140.355,Demta; Nuclear Sentanic
+east2503,Eastern Trans-Fly,4,4,-9.166,143.133,2,-9.089,142.893,Bine,2,-9.141,143.053,Binaturi; Bine
+maid1262,Maiduan,4,0,39.485,-120.897,4,39.808,-121.191,Valley Maidu,4,39.485,-120.897,Nisenan; Northeast Maidu; Northwest Maidu; Valley Maidu
+yoku1255,Yokutsan,4,2,36.186,-119.244,2,35.557,-119.074,Palewyami Yokuts,2,35.71,-119.158,General Yokuts; Palewyami Yokuts
+kama1371,Kamakanan,4,0,-15.723,-40.763,2,-17.0,-41.5,Masacara,2,-16.149,-41.008,Masacara; Nuclear Kamakanan
+kuni1270,Kunimaipan,4,4,-7.763,146.877,3,-7.718,146.914,Weri,3,-7.747,146.863,Biangai; Kunimaipa; Weric
+maoo1243,Blue Nile Mao,4,4,9.755,34.76,2,9.826,34.652,Bambassi,2,9.779,34.724,Bambassi; West Mao
+chon1288,Chonan,4,0,-49.88,-68.258,2,-54.0,-68.5,Selk'nam,1,-47.653,-68.956,Nuclear Chonan; Teushen
+iwai1246,Iwaidjan Proper,4,3,-11.662,132.902,3,-11.988,132.878,Amurdak,3,-11.675,132.857,Amurdak; Central Iwaidjic; Mawng
+east2386,Eastern Jebel,4,4,11.1,33.895,2,11.467,33.98,Gaam,2,11.223,33.923,Aka-Kelo-Molo; Gaam
+wali1264,Walioic,4,4,-4.559,142.171,3,-4.581,142.112,Yawiyo,3,-4.604,142.149,Pai-Sinen-Walio; Tuwari; Yawiyo
+suki1244,Suki-Gogodala,4,4,-8.081,142.396,2,-7.955,142.4,Ari,2,-8.07,142.212,Gogodalic; Suki
+chin1490,Chinookan,4,0,48.157,-123.42,3,46.391,-123.925,Clatsop-Shoalwater Chinook,3,47.313,-123.113,Kathlamet; Lower Chinookan; Upper Chinook
+nada1235,Naduhup,4,4,-0.132,-68.311,2,-0.118,-67.293,Dâw,2,-0.503,-67.643,Eastern Naduhup; Nadëb
+yuka1259,Yukaghir,4,2,67.367,155.885,3,68.052,162.959,Malyj Anjuj Omok,3,67.812,160.737,Kolymic; Malyj Anjuj Omok; Northern Yukaghir
+tura1263,Turama-Kikori,4,4,-7.254,143.899,2,-7.097,143.993,Barikewa,2,-7.226,143.993,Rumu; Turama-Omatian
+huav1256,Huavean,4,4,16.266,-94.774,2,16.217,-94.816,Santa María del Mar Huave,2,16.266,-94.774,San Dionisio-San Mateo Huave; San Francisco-Santa María Huave
+ayma1253,Aymaran,4,4,-14.924,-72.674,2,-17.142,-70.344,Southern Aymara,1,-14.924,-72.674,Central-Southern Aymara; Tupe
+mani1293,Maningrida,4,4,-12.266,134.221,2,-12.306,134.365,Burarra,2,-12.266,134.221,Bureran; Nakkara-Ndjebbana
+sali1297,Saliban,3,3,4.761,-67.907,2,4.418,-67.757,Piaroa,2,4.897,-68.276,Maco-Piaroa; Sáliba
+east1459,East Bird's Head,3,3,-1.433,133.571,2,-1.18,133.618,Meyah,2,-1.449,133.666,Meax; Sougb
+giim1238,Giimbiyu,3,0,-12.667,132.955,2,-12.284,132.868,Erre,2,-12.56,132.959,Mangerr; Urninganggic
+katl1246,Katla-Tima,3,3,11.683,29.333,2,11.803,29.283,Katla,2,11.692,29.29,Katla-Julud; Tima
+kaya1327,Kayagaric,3,3,-6.431,138.83,2,-6.377,138.932,Kayagar,2,-6.391,138.789,Atohwaim; Kaygir-Tamagario
+kamu1264,Kamula-Elevala,3,3,-6.547,141.942,2,-6.469,141.658,Pare,2,-6.733,142.116,Elevala; Kamula
+kres1240,Kresh-Aja,3,3,9.005,25.071,2,8.434,25.0,Kresh-Woro,2,8.899,25.207,Aja (South Sudan); Kreshic
+char1238,Charruan,3,0,-34.141,-56.139,3,-34.9,-56.16,Charrúa,3,-34.141,-56.139,Chaná; Charrúa; Güenoa
+west2604,West Bomberai,3,3,-3.129,132.529,2,-3.106,132.637,Baham,2,-3.214,132.566,Kalamang; Nuclear West Bomberai
+mair1253,Mairasic,3,3,-3.517,134.419,3,-3.716,134.454,Semimi,3,-3.517,134.419,Mairasi; Mer; Semimi
+boro1281,Bororoan,3,1,-16.603,-55.2,2,-15.593,-57.419,Umotína,2,-15.77,-57.438,Bororo-Otuke; Umotína
+yang1287,Yangmanic,3,1,-15.416,132.604,3,-15.415,132.604,Wardaman,3,-15.225,132.501,Dagoman; Wardaman; Yangman
+gumu1250,Gumuz,3,3,10.853,35.554,2,11.05,35.93,Northern Gumuz,2,11.022,35.472,Daats'iin; Nuclear Gumuz
+zamu1243,Zamucoan,3,2,-19.908,-59.213,2,-18.91,-59.44,Zamuco,2,-19.83,-59.018,Chamacoco; Zamuco-Ayoreo
+kala1402,Kalapuyan,3,0,44.628,-123.45,3,44.986,-123.925,Central Kalapuya,3,44.628,-123.45,Central Kalapuya; Tualatin-Yamhill; Yoncalla
+kuli1252,Kuliak,3,3,3.233,34.249,2,3.614,34.251,Ik,2,3.328,34.249,Ik; Ngangea-So
+dizo1235,Dizoid,3,3,6.691,35.747,3,6.141,35.576,Dizin,3,6.691,35.747,Dizin; Nayi; Sheko
+kawe1237,Kawesqar,3,1,-49.303,-74.708,2,-53.436,-71.041,Alacalufe-Central,2,-53.094,-71.605,Alacalufe-Austral; North Central Alacufan
+tsim1258,Tsimshian,3,3,54.294,-128.604,2,55.09,-128.08,Gitxsan,2,53.868,-128.589,Nishga-Gitxsan; Southern-Coastal Tsimshian
+peba1241,Peba-Yagua,3,1,-3.429,-72.219,2,-3.429,-72.219,Yagua,2,-3.631,-72.526,Peba-Yameo; Yagua
+west1503,Western Tasmanian,3,0,-41.792,145.783,2,-41.188,146.56,Port Sorell,2,-41.641,145.979,Port Sorell; Western Coastal Tasmanian
+tequ1244,Tequistlatecan,3,2,16.067,-95.709,2,16.185,-95.73,Highland Oaxaca Chontal,2,16.18,-95.684,Eastern Tequistlatecan; Highland Oaxaca Chontal
+ainu1252,Ainu,3,1,43.634,142.462,2,48.142,142.33,Sakhalin Ainu,1,47.45,145.339,Hokkaido-Kuril Ainu; Sakhalin Ainu
+kolo1268,Kolopom,3,3,-7.821,138.286,2,-7.936,138.019,Ndom,2,-7.849,138.219,Kimaama-Riantana; Ndom
+bula1259,Bulaka River,3,3,-7.708,139.234,2,-7.744,139.273,Maklew,2,-7.717,139.243,Jelmek; Maklew
+lepk1239,Lepki-Murkim-Kembra,3,3,-4.024,140.604,3,-4.106,140.464,Lepki,3,-4.024,140.604,Kembra; Lepki; Murkim
+kwal1257,Kwalean,3,2,-9.701,147.625,2,-9.707,147.562,Humene,2,-9.692,147.537,Humene-Kwale; Mulaha
+jarr1235,Jarrakan,3,2,-16.969,128.143,2,-16.36,128.889,Miriwung,2,-16.749,128.211,Kitja; Miriwunic
+monu1249,Bogia,2,2,-4.313,144.97,2,-4.272,144.95,Monumbo,2,-4.313,144.97,Lilau; Monumbo
+tebe1251,Teberan,2,2,-6.76,144.485,2,-6.658,144.511,Dadibi,2,-6.76,144.485,Dadibi; Folopa
+hibi1242,Hibito-Cholon,2,0,-7.908,-76.834,2,-6.583,-77.7,Hibito,2,-7.908,-76.834,Cholón; Hibito
+paho1240,Pahoturi,2,2,-8.923,142.416,2,-9.085,142.532,Agob-Ende-Kawam,2,-8.923,142.416,Agob-Ende-Kawam; Idi-Taeme
+doso1238,Doso-Turumsa,2,2,-7.895,142.612,2,-7.932,142.568,Turumsa,2,-7.895,142.612,Doso; Turumsa
+coos1248,Coosan,2,0,43.381,-124.209,2,43.441,-124.16,Hanis,2,43.381,-124.209,Hanis; Miluk
+uruc1242,Uru-Chipaya,2,1,-18.74,-67.896,2,-16.725,-68.971,Uru,2,-17.733,-68.437,Chipaya; Uru
+hata1242,Hatam-Mansim,2,2,-1.025,134.024,2,-0.915,134.011,Mansim,2,-1.025,134.024,Hatam; Mansim
+garr1260,Garrwan,2,1,-17.45,137.72,2,-18.653,137.608,Wanyi,2,-18.052,137.664,Garrwa; Wanyi
+yuki1242,Yuki-Wappo,2,0,39.045,-122.894,2,39.839,-123.296,Northern Yukian,2,39.045,-122.894,Northern Yukian; Wappo
+hurr1239,Hurro-Urartian,2,0,39.617,43.329,2,40.734,43.315,Hurrian,2,39.617,43.329,Hurrian; Urartian
+kond1302,Konda-Yahadian,2,2,-1.885,132.078,2,-1.943,132.096,Yahadian,2,-1.885,132.078,Yaben (Konda); Yahadian
+jara1244,Jarawa-Onge,2,2,11.151,92.564,2,10.693,92.471,Önge,2,11.151,92.564,Jarawa (India); Önge
+tara1323,Tarascan,2,2,19.393,-101.892,2,19.247,-101.631,Purepecha,2,19.393,-101.892,Purepecha; Western Highland Purepecha
+katu1274,Katukinan,2,1,-6.454,-68.768,2,-6.454,-68.768,Katukína-Kanamarí,2,-6.856,-66.801,Katawixi; Katukína-Kanamarí
+kere1287,Keresan,2,2,35.249,-106.987,2,35.522,-106.453,Eastern Keres,2,35.249,-106.987,Eastern Keres; Western Keres
+wint1258,Wintuan,2,0,39.466,-122.226,2,39.718,-122.445,Wintu,2,39.466,-122.226,Patwin; Wintu
+bayo1259,Bayono-Awbono,2,2,-5.138,139.671,2,-5.059,139.724,Awbono,2,-5.138,139.671,Awbono; Bayono
+kaku1242,Kakua-Nukak,2,2,1.774,-70.514,2,0.888,-69.566,Kakua,2,1.774,-70.514,Kakua; Nukak Makú
+kore1284,Koreanic,2,2,35.46,126.762,2,37.54,126.98,Korean,2,35.46,126.762,Jejueo; Korean
+pala1350,Palaihnihan,2,1,41.098,-121.191,2,41.098,-121.191,Achumawi,2,40.763,-120.925,Achumawi; Atsugewi
+baib1250,Baibai-Fas,2,2,-3.268,141.493,2,-3.109,141.64,Momu-Fas,2,-3.268,141.493,Baibai; Momu-Fas
+otom1276,Otomaco-Taparita,2,0,7.635,-67.049,2,7.62,-66.499,Otomaco,2,7.635,-67.049,Otomaco; Taparita
+buna1274,Bunaban,2,2,-18.119,125.99,2,-18.407,126.351,Gooniyandi,2,-18.119,125.99,Bunaba; Gooniyandi
+mayb1237,Maybratic,2,2,-1.078,132.627,2,-0.787,132.663,Karon Dori,2,-1.078,132.627,Karon Dori; Maybrat
+momb1255,Mombum-Koneraw,2,2,-8.323,138.42,2,-8.271,138.773,Mombum,2,-8.323,138.42,Koneraw; Mombum
+bora1262,Boran,2,2,-1.433,-72.341,2,-0.865,-72.425,Muinane,2,-1.433,-72.341,Bora; Muinane
+sena1264,Senagi,2,2,-3.62,141.073,2,-3.523,140.947,Dera (Indonesia),2,-3.62,141.073,Angor; Dera (Indonesia)
+puri1261,Puri-Coroado,2,0,-21.221,-44.158,2,-22.176,-44.711,Puri,2,-21.221,-44.158,Coroado-Puri; Puri
+sout1293,South-Eastern Tasmanian,2,0,-43.181,147.066,2,-42.989,146.885,South-Eastern-Tasmanian-Hinterland,2,-43.181,147.066,Bruny Island; South-Eastern-Tasmanian-Hinterland
+taul1250,Taulil-Butam,2,1,-4.444,152.095,2,-4.472,152.246,Butam,2,-4.458,152.17,Butam; Taulil
+cahu1265,Cahuapanan,2,2,-5.52,-76.618,2,-5.638,-76.825,Shawi,2,-5.52,-76.618,Jebero; Shawi
+amto1249,Amto-Musan,2,2,-4.087,141.38,2,-4.122,141.339,Amto,2,-4.087,141.38,Amto; Siawi
+east2374,Eastern Daly,2,0,-13.744,130.849,2,-13.948,130.6,Madngele,2,-13.744,130.849,Kamu; Madngele
+kwom1263,Kwomtari-Nai,2,2,-3.619,141.381,2,-3.73,141.273,Nai,2,-3.619,141.381,Kwomtari; Nai
+piaw1238,Piawi,2,2,-5.111,144.237,2,-5.126,144.137,Pinai-Hagahai,2,-5.111,144.237,Haruai; Pinai-Hagahai
+nort1547,Northern Daly,2,1,-13.427,130.664,2,-12.487,130.676,Tyaraity,2,-12.957,130.67,Mullukmulluk; Tyaraity
+nivk1234,Nivkh,2,2,52.192,141.933,2,51.781,143.163,Nighvng,2,52.192,141.933,Amur Nivkh; Nighvng
+teme1251,Temeinic,2,2,11.608,29.485,2,11.389,29.58,Tese,2,11.608,29.485,Temein; Tese
+lenc1239,Lencan,2,0,13.614,-87.806,2,13.667,-87.499,Lenca-Honduras,2,13.614,-87.806,Lenca-Honduras; Lenca-Salvador
+hara1260,Harakmbut,2,2,-12.907,-70.89,2,-13.32,-71.227,Huachipaeri,2,-12.907,-70.89,Amarakaeri; Huachipaeri
+ticu1244,Ticuna-Yuri,2,1,-3.663,-69.872,2,-1.359,-69.985,Juri,2,-2.511,-69.929,Juri; Ticuna
+limi1242,Limilngan-Wulna,2,0,-12.366,131.553,2,-12.429,131.845,Limilngan,2,-12.366,131.553,Limilngan; Wulna
+rash1249,Rashad,2,2,11.993,31.021,2,11.952,31.111,Tegali,2,11.993,31.021,Tagoi; Tegali
+yawa1259,Yawa-Saweru,2,2,-1.843,136.279,2,-1.915,136.296,Saweru,2,-1.843,136.279,Saweru; Yawa
+nort1442,North-Eastern Tasmanian,2,0,-41.442,147.498,2,-41.558,147.208,North Midlands Tasmanian,2,-41.442,147.498,Ben-Lomond-Cape-Portland; North Midlands Tasmanian
+nyim1244,Nyimang,2,2,12.273,30.097,2,12.099,29.433,Ama (Sudan),2,12.273,30.097,Afitti; Ama (Sudan)
+marr1257,Marrku-Wurrugu,2,0,-11.273,132.445,2,-11.364,132.303,Wurrugu,2,-11.273,132.445,Margu; Wurrugu
+arau1255,Araucanian,2,2,-39.407,-72.015,2,-40.069,-72.767,Huilliche,2,-39.407,-72.015,Huilliche; Mapudungun
+haid1248,Haida,2,2,53.633,-132.043,2,54.005,-132.079,Northern Haida,2,53.633,-132.043,Northern Haida; Southern Haida
+east2499,East Kutubu,2,2,-6.568,143.57,2,-6.663,143.646,Fiwaga,2,-6.568,143.57,Fiwaga; Foi
+naml1239,Namla-Tofanma,2,2,-3.662,140.626,2,-3.743,140.591,Tofanma,2,-3.662,140.626,Namla; Tofanma
+kaur1274,Kaure-Kosare,2,2,-3.59,140.168,2,-3.392,140.14,Kaure-Narau,2,-3.59,140.168,Kaure-Narau; Kosadle
+huar1251,Huarpean,2,0,-32.639,-67.831,2,-33.481,-68.097,Allentiac,2,-32.639,-67.831,Allentiac; Millcayac
+chiq1253,Chiquitano,2,2,-16.72,-61.389,2,-16.77,-61.818,Lomeriano-Ignaciano Chiquitano,2,-16.72,-61.389,Lomeriano-Ignaciano Chiquitano; Migueleño Chiquitano
+fura1235,Furan,2,2,13.403,22.273,2,14.753,20.891,Amdang,2,13.403,22.273,Amdang; Fur
+jica1245,Jicaquean,2,1,14.669,-87.037,2,15.427,-88.04,Western Jicaque,2,15.048,-87.538,Tol; Western Jicaque
+sout2772,Southern Daly,2,2,-14.51,130.47,2,-14.749,129.702,Murriny Patha,2,-14.51,130.47,Murriny Patha; Nangikurrunggurr
+chim1311,Chimakuan,2,0,47.915,-123.871,2,47.911,-124.603,Quileute,2,47.915,-123.871,Chimakum; Quileute
+tege1244,Tegem,2,2,10.195,30.727,2,10.055,30.72,Amira,2,10.195,30.727,Amira; Lafofa
+manu1261,Manubaran,2,2,-9.748,148.144,2,-9.93,148.303,Maria (Papua New Guinea),2,-9.748,148.144,Doromu-Koki; Maria (Papua New Guinea)

@@ -1,0 +1,146 @@
+<!-- wp:paragraph -->
+<p><em>There are {{counts.spoken|int}} spoken languages in the world's most careful catalogue, and they fall into {{counts.lineages|int}} separate lineages that nobody has been able to connect. I put every one of them on a map, with their family trees, how endangered they are, how many people speak them and where the great families may have begun.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/language-origins/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="{{DOI_URL}}">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>Ask how many languages there are and you will get a range of answers, because nobody agrees exactly where one language ends and the next begins. The best open attempt to list them all is Glottolog, run by linguists at the Max Planck Institute for Evolutionary Anthropology in Leipzig. It counts {{counts.spoken|int}} spoken first languages, living and dead, and puts nearly all of them on a map. It also does something less obvious: it sorts them into families, the way a biologist sorts species, and only where the evidence of shared descent holds up.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I wanted to see that whole tree at once, so I built a map of it. Every dot below is a language, coloured by its family.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_families_map.png|World map with a coloured dot for every language in Glottolog: orange Atlantic-Congo languages filling Africa south of the Sahara, teal Austronesian languages spread from Madagascar across Indonesia to the Pacific islands, blue Indo-European from Iceland to Bangladesh, red Sino-Tibetan across China and the Himalaya, coral Pama-Nyungan covering most of Australia, and a dense mix of many muted colours in New Guinea and South America|Every spoken language in Glottolog, coloured by family. Black dots are isolates, languages with no known relatives.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">{{counts.lineages|int}} family trees, not one</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>On Glottolog's strict standard the world's languages belong to {{counts.families|int}} families and {{counts.isolates|int}} isolates: languages such as Basque, Burushaski in the Karakoram and Kusunda in Nepal, which have no relatives anyone has been able to prove. That is {{counts.lineages|int}} lineages, {{counts.lineages_living|int}} of which still have a living language.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>They are wildly unequal. Five families, Atlantic-Congo, Austronesian, Indo-European, Sino-Tibetan and Afro-Asiatic, hold {{counts.top5_share|pc1}} of all languages. {{counts.families_le5|int}} families have five languages or fewer. And the trees are deep: English sits {{english_depth|raw}} levels down, inside Anglic, inside Anglo-Frisian, inside West Germanic, inside Germanic, inside Indo-European. On the interactive map you can click your way down that tree and watch each branch light up.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_ie_branches.png|Map of Europe, the Middle East and South Asia with Indo-European languages coloured by branch: Germanic in orange across north-west Europe and Scandinavia, Italic in green from Portugal to Romania, Balto-Slavic in red across eastern Europe, Celtic in purple on the Atlantic fringe, Greek in gold, Armenian and Albanian in small clusters, extinct Anatolian languages in Turkey, and a great mass of blue Indo-Iranian languages from Iran across Pakistan and northern India|Indo-European by branch. Indo-Iranian alone has {{ie_ii|int}} languages, more than every European branch together.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A tropical belt of languages</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Papua New Guinea is the most linguistically diverse country on Earth by a distance: {{countries.png_n|int}} living languages from {{countries.png_lineages|int}} separate lineages. Indonesia ({{countries.top_n.1.n|int}}), Nigeria ({{countries.top_n.2.n|int}}), India ({{countries.top_n.3.n|int}}) and China ({{countries.top_n.4.n|int}}) follow. For land area, though, Vanuatu wins: {{countries.top_density.0.per10k|f1}} languages per 10,000 square kilometres.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>To compare places fairly I cut the world into equal-area squares {{grid.cell_km|int}} kilometres across. One square in {{grid.top_n.0.place|raw}} holds {{grid.top_n.0.n|int}} living languages. The densest 1% of the world's land holds {{grid.top1pct_share|pc1}} of all of them, in a belt that runs through New Guinea and Melanesia, the Nigeria and Cameroon borderland, southern Mexico and the eastern Himalaya.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_diversity_map.png|World map of equal-area squares shaded from pale to dark blue by the number of living languages in each: the darkest squares are in New Guinea, central Nigeria and Cameroon, and Oaxaca in southern Mexico, with a dark band along the Himalaya into north-east India and Myanmar, while most of Europe, Russia, North America and Australia are pale|Living languages in each 200 km square. The darkest squares hold more than 100.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Most languages are in danger</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Glottolog combines the endangerment ratings of Ethnologue, UNESCO and the Endangered Languages Catalogue into a single scale. Only {{aes.safe_pct|pc1}} of the world's spoken languages are rated not endangered. {{aes.endangered_pct|pc1}} are endangered, from threatened to nearly extinct, and {{aes.extinct_pct|pc1}} are already extinct.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The losses follow colonial history. In Glottolog's Australia region, {{macro_by.Australia.extinct_pct|pc1}} of languages are extinct; in South America {{macro_by.South America.extinct_pct|pc1}}, in North America {{macro_by.North America.extinct_pct|pc1}}. In Africa the figure is {{macro_by.Africa.extinct_pct|pc1}}. Of the {{counts.lineages|int}} lineages, {{aes.lineages_no_safe|int}} have no language left that is rated safe.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_aes_macro.png|Stacked bar chart of endangerment by world region: Africa has the largest share not endangered at 59 per cent, Papunesia and Eurasia about a third, while North America is 28 per cent extinct, South America 35 per cent and Australia 64 per cent extinct|How endangered are the languages of each region? Glottolog's Agglomerated Endangerment Status.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>Only {{aes.safe_pct|pc1}} of the world's spoken languages are rated safe. In Australia, {{macro_by.Australia.extinct_pct|pc1}} are already extinct.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A few giants</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Glottolog does not count speakers, so I took counts from Wikidata, which has one for {{speakers.n|int}} languages. They are a patchwork of years and definitions (some count only native speakers, some everyone), so read them as orders of magnitude. Even so, the picture is stark: the 10 largest languages, led by Mandarin Chinese, account for {{speakers.top10_share|pc1}} of all speakers counted, and the 20 largest for {{speakers.top20_share|pc1}}. Half the languages with a count have fewer than {{speakers.median|int}} speakers, and most of those without a count are smaller still.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_speakers.png|Left, a bar chart of the 20 largest languages by Wikidata speaker count, led by Mandarin Chinese at 918 million, Spanish 485 million, English 379 million and Hindi 341 million. Right, a curve showing the cumulative share of all speakers counted as languages are added from largest to smallest: the top 10 reach 50.9 per cent, the top 20 62.6 per cent and the top 100 89.8 per cent|The 20 largest languages by Wikidata count, and how quickly the largest languages add up to almost everyone.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Where did the families begin?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This is the detective story. Every family had a first speech community somewhere, and linguists, archaeologists and geneticists have spent two centuries arguing about where. I collected the main published proposals for {{origins.n_fam|int}} large families, with dates: the Pontic-Caspian steppe and Anatolia for Indo-European (and a newer hybrid south of the Caucasus), Taiwan for Austronesian, the Cameroon and Nigeria borderland for Bantu, the Gulf Plains of Queensland for Pama-Nyungan, central Peru for Quechua, and more. They are hypotheses, and some are hotly contested.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Then I asked a simple question of the data. Where do each family's deepest branches crowd most closely together today? It is an old rule of thumb that a family has usually been longest where its deepest divisions sit side by side. For {{origins.n_hot_within500|int}} of {{origins.n_compared|int}} families that hotspot lands within 500 kilometres of a proposed homeland. Austronesian's is on a small island between Taiwan and the Philippines, {{origins.an_km|int}} km from Taiwan, even though the family's centre today is in New Guinea. Pama-Nyungan's is {{origins.pn_km|int}} km from the Gulf Plains. But Indo-European's lands in the Balkans, far from the steppe and from Anatolia, because three thousand years of later movement have reshuffled Europe. The rule works for families that left their early branches in place, and fails for those that kept moving.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_origins_map.png|World map with coloured stars at proposed homelands: Indo-European on the Pontic-Caspian steppe, in Anatolia and south of the Caucasus, Uralic near the Volga and in western Siberia, Turkic in Mongolia, Sino-Tibetan on the Yellow River, Austronesian on Taiwan, Afro-Asiatic in the Horn of Africa and the Levant, Niger-Congo in West Africa, Bantu in Cameroon, Pama-Nyungan in Queensland, Uto-Aztecan in Mexico and the south-western United States, and Quechuan in central Peru. Diamonds mark each family's computed diversity hotspot and rings its present centre|Proposed homelands from the literature (stars), with each family's diversity hotspot (diamonds) and present centre (rings) computed from Glottolog.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Everything comes from Glottolog {{meta.glottolog|raw}}'s open data release. I dropped its 'bookkeeping' entries (names kept for reference, not languages), and counted families, endangerment and diversity over spoken first languages; sign languages, pidgins and a few others are on the map in grey. Speaker counts come from Wikidata: where a language has several, I took the most recent. Diversity is counted in equal-area squares and by the countries Glottolog lists for each language. The homelands are typed in from the published studies, each one cited on the page and in the paper; the hotspots and centres are my own simple calculations. One dot per language means the map shows where languages come from more than where their speakers live now: English has one dot, in England. The paper sets out every step and caveat.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/language-origins/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="{{DOI_URL}}">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/language-origins">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Hammarström, H., Forkel, R., Haspelmath, M. and Bank, S. (2025) <a href="https://glottolog.org">Glottolog {{meta.glottolog|raw}}</a>. Max Planck Institute for Evolutionary Anthropology. CC BY 4.0.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.wikidata.org/">Wikidata</a>, number of speakers. CC0.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Homelands: Anthony (2007); Anthony and Ringe (2015); Haak et al. (2015); Renfrew (1987); Bouckaert et al. (2012); Heggarty et al. (2023); Blust (1999); Gray et al. (2009); Vansina (1995); Grollemund et al. (2015); Honkola et al. (2013); Grünthal et al. (2022); Janhunen (2009); Golden (1992); Savelyev and Robbeets (2020); Zhang et al. (2019); Sagart et al. (2019); Ehret (1995); Ehret et al. (2004); Militarev (2002); Williamson and Blench (2000); Güldemann (2018); Bouckaert, Bowern and Atkinson (2018); Hill (2001); Fowler (1983); Torero (1964); Adelaar and Muysken (2004). Full references are in the paper and on the interactive page.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

@@ -1,0 +1,157 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={Where Languages Come From},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Where Languages Come From\par}
+\vspace{0.4em}
+{\large The world's language families, their proposed homelands\\and where they are spoken today, mapped from Glottolog\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/{{DOI}}}{https://doi.org/{{DOI}}}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+I map every language-level entry in Glottolog {{meta.glottolog}} and publish the result as an interactive atlas with a browsable family tree, endangerment, speaker numbers and the proposed homelands of the great language families. Glottolog's {{counts.spoken|int}} spoken first languages belong to {{counts.families|int}} families and {{counts.isolates|int}} isolates: {{counts.lineages|int}} lineages that cannot, on present evidence, be shown to be related, of which {{counts.lineages_living|int}} survive. Five families hold {{counts.top5_share|pc}} of all languages, while {{counts.families_le5|int}} families have five or fewer. Diversity is concentrated in a tropical belt: Papua New Guinea alone has {{countries.png_n|int}} living languages from {{countries.png_lineages|int}} lineages, and the densest 1\% of the world's land, measured in equal-area squares of {{grid.cell_km|int}} km, holds {{grid.top1pct_share|pc}} of living languages. By Glottolog's Agglomerated Endangerment Status {{aes.endangered_pct|f1}}\% of spoken languages are endangered and {{aes.extinct_pct|f1}}\% extinct; only {{aes.safe_pct|f1}}\% are rated not endangered. Wikidata gives speaker counts for {{speakers.n|int}} languages ({{speakers.coverage_pct|f1}}\%); the counts mix years and definitions, but they show the 20 largest languages accounting for {{speakers.top20_share|f1}}\% of all speakers counted. Finally, I set {{origins.n_hyp|int}} published homeland hypotheses for {{origins.n_fam|int}} large families beside two reference points computed from Glottolog, each family's present centre and the hotspot where its deepest branches crowd most closely. The hotspot lies within 500 km of a proposed homeland for {{origins.n_hot_within500|int}} of {{origins.n_compared|int}} families, including Austronesian, Pama-Nyungan and Bantu, but far from all three Indo-European proposals.
+
+\textbf{Keywords:} languages; language families; Glottolog; language endangerment; linguistic diversity; homelands; Indo-European; Austronesian; Bantu; mapping
+\end{quote}
+
+\section{Introduction}
+How many languages are there, how are they related, and where did their families begin? These are among the most asked questions about human diversity and among the hardest to answer. There is no agreed line between a language and a dialect, documentation is very uneven, and the deep history of most families must be pieced together from comparative linguistics, archaeology and, increasingly, ancient DNA.
+
+Glottolog \citep{glottolog} is the most careful open catalogue of the world's languages. It lists languages, dialects and families with a single identifier each (the glottocode), places languages on a map, classifies them into families only where the evidence of descent is accepted, and aggregates assessments of endangerment. This study turns that catalogue into an atlas (\url{{{meta.page}}}). It does four things: it maps every language by family and lets readers walk the family tree from the top level to a single language; it measures where languages and lineages are concentrated; it summarises endangerment and, with speaker counts from Wikidata \citep{wikidata}, how unequally speakers are spread across languages; and it places the published homeland hypotheses for eleven large families beside neutral reference points computed from the present distribution of each family.
+
+The study is descriptive. The homelands are hypotheses from the cited literature, not results of this study, and the computed reference points are heuristics.
+
+\section{Data}
+\textbf{Glottolog.} Glottolog {{meta.glottolog}} in its Cross-Linguistic Data Formats (CLDF) release \citep{glottolog}. The languages table gives each languoid's glottocode, name, level (family, language or dialect), coordinates, macroarea, ISO 639-3 code, the countries where it is spoken and its top-level family; the values table gives each languoid's category, its classification (the path of glottocodes from the top of its family), its Agglomerated Endangerment Status (AES) and its most extensive description. Glottolog is released under CC BY 4.0.
+
+\textbf{Wikidata.} A query of Wikidata \citep{wikidata} for items with a Glottolog code, returning the item's English label, ISO 639-3 code, every `number of speakers' statement with its point in time, and UNESCO and Ethnologue status. Wikidata is CC0.
+
+\textbf{Geography.} Natural Earth \citep{naturalearth} countries (1:50m) for outlines and areas, land (1:50m) for the grid, admin-1 regions (1:10m) to name places and populated places for map labels. Areas are measured in the Equal Earth projection \citep{equalearth}, which preserves area.
+
+\textbf{Homelands.} The places and dates of the proposed homelands were typed in from the published studies cited in Table~\ref{tab:homelands} and are released as a small table with full references.
+
+{{TABLE_SOURCES}}
+
+\section{Methods}
+\subsection{Which languages}
+Glottolog has {{counts.languoids_language_level|int}} language-level entries. I drop the {{counts.bookkeeping|int}} entries in its `bookkeeping' category, which are names kept for reference rather than languages, and map the other {{counts.mapped|int}} ({{counts.no_coords|int}} have no coordinates). Analyses of families, endangerment, diversity and speakers use the {{counts.spoken|int}} spoken first languages (Glottolog category `Spoken L1 Language'). The remaining {{counts.other_nonfamily|int}} (sign languages, pidgins, unclassifiable, unattested, artificial and mixed languages and speech registers) belong to Glottolog's non-genealogical `pseudo families' and are shown on the map but not counted as members of families. A family is a top-level genealogical family; an isolate is a spoken language with no parent; together they are lineages. A language is `living' if its status is anything other than extinct; the {{aes.nodata|int}} spoken languages without a status are counted as living.
+
+\subsection{Endangerment}
+Glottolog's AES places each language on a six-step scale (not endangered, threatened, shifting, moribund, nearly extinct, extinct), harmonising the Ethnologue, UNESCO and Endangered Languages Catalogue scales. I call the four middle steps endangered.
+
+\subsection{Diversity}
+For countries, each living spoken language is counted in every country that Glottolog lists for it, and the lineages it belongs to are counted with it; areas come from Natural Earth. For a fairer comparison across space I laid a grid of {{grid.cell_km|int}} by {{grid.cell_km|int}} km squares over the Equal Earth projection, kept the {{grid.n_land_cells|int}} squares that touch land outside Antarctica, and counted the living languages and lineages whose point falls in each. Because every square has the same area, counts are densities. Coastal squares have less land and so understate density.
+
+\subsection{Speakers}
+A Wikidata item can carry several speaker counts, from different years and often with first-language, second-language and total figures side by side; the qualifiers that would say which is which were not in the query result. I take the count with the most recent point in time; if several share that date, the smallest, which is usually the first-language figure; if none is dated, the largest. A date before 1800 is treated as an error. Only items whose Glottolog code is a language-level languoid are used. The result covers {{speakers.n|int}} spoken languages; {{speakers.n_undated|int}} of the counts are undated, {{speakers.before2000|int}} are from before 2000 and {{speakers.since2015|int}} from 2015 or later.
+
+\subsection{Homelands and computed centres}
+For each family I compute two reference points. The \emph{present centre} is the spherical mean of the coordinates of its living languages. The \emph{diversity hotspot} follows the `centre of gravity' principle of \citet{sapir1916}, that a family has usually been longest where its deepest divisions are found together. The family's deep branches are its top-level subgroups, ignoring Glottolog's `unclassified' holding groups; where there are at most two and one holds 80\% or more of the languages, that branch is replaced by its own subgroups (Indo-European is therefore split below `Classical Indo-European' and Turkic below `Common Turkic'). The hotspot is the location of the language, living or extinct, with the most distinct deep branches within 500 km, ties broken by the number of languages within 500 km and then by closeness to the mean of the branch centres. Bantu, which is a subgroup of Atlantic-Congo in Glottolog, is treated as a family for this purpose. Niger-Congo is not accepted by Glottolog; its proposed homeland is compared with Atlantic-Congo, the largest family within it. Distances are great-circle distances.
+
+\section{Results}
+\subsection{Families and isolates}
+The {{counts.spoken|int}} spoken languages fall into {{counts.families|int}} families and {{counts.isolates|int}} isolates, {{counts.lineages|int}} lineages in all (Figure~\ref{fig:famap}). {{counts.families_extinct|int}} of the families and {{counts.isolates_extinct|int}} of the isolates are wholly extinct, leaving {{counts.lineages_living|int}} living lineages. The size distribution is extremely skewed (Figure~\ref{fig:fams}): Atlantic-Congo ({{top_families.0.n|int}} languages) and Austronesian ({{top_families.1.n|int}}) are followed by Indo-European ({{top_families.2.n|int}}), Sino-Tibetan ({{top_families.3.n|int}}) and Afro-Asiatic ({{top_families.4.n|int}}); these five hold {{counts.top5_share|f1}}\% of all languages, only {{counts.families_ge100|int}} families have 100 or more, and {{counts.families_le5|int}} have five or fewer. The trees are deep: English sits {{english_depth}} levels below the top of Indo-European, and the deepest language in the classification, {{counts.max_depth_lang}}, a Bantu language of Gabon, sits {{counts.max_depth|int}} levels down. Glottolog also names {{counts.dialects|int}} dialects.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_families_map.png}
+\caption{Every spoken language in Glottolog {{meta.glottolog}} with a location, coloured by family. Isolates in black; sign languages, pidgins and other languages outside genealogical families as open circles. Equal Earth projection.}\label{fig:famap}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=.85\textwidth]{f_families.png}
+\caption{The fifteen largest families by number of spoken languages; the pale part of each bar is extinct languages.}\label{fig:fams}\end{figure}
+
+Selecting a family in the atlas colours it by its deep branches. Figure~\ref{fig:ie} shows Indo-European: Indo-Iranian alone has {{ie_ii}} languages, Germanic {{ie_ger}} and Italic {{ie_ita}}, while Anatolian and Tokharian are known only from ancient texts.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_ie_branches.png}
+\caption{Indo-European languages by deep branch (number of spoken languages in brackets, living and extinct).}\label{fig:ie}\end{figure}
+
+\subsection{Where languages are concentrated}
+Counting each living language in every country where it is spoken, Papua New Guinea has the most ({{countries.top_n.0.n|int}}), followed by Indonesia ({{countries.top_n.1.n|int}}), Nigeria ({{countries.top_n.2.n|int}}), India ({{countries.top_n.3.n|int}}) and China ({{countries.top_n.4.n|int}}) (Figure~\ref{fig:cty}). Papua New Guinea also has the most lineages ({{countries.top_lineages.0.lineages|int}}), ahead of Indonesia ({{countries.top_lineages.1.lineages|int}}) and Brazil ({{countries.top_lineages.2.lineages|int}}). Among countries of at least 10,000 km\textsuperscript{2}, Vanuatu has by far the highest density, {{countries.top_density.0.per10k|f1}} languages per 10,000 km\textsuperscript{2}, against {{countries.top_density.1.per10k|f1}} for the Solomon Islands and {{countries.top_density.3.per10k|f1}} for Papua New Guinea.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.8\textwidth]{f_countries.png}
+\caption{Countries with the most living spoken languages, with the number of lineages they belong to.}\label{fig:cty}\end{figure}
+
+The equal-area grid shows the same concentration more sharply (Figure~\ref{fig:grid}, Table~\ref{tab:cells}). Of {{grid.n_land_cells|int}} land squares outside Antarctica, {{grid.n_cells_with|int}} contain at least one living language. The {{grid.top1pct_cells|int}} densest (1\%) hold {{grid.top1pct_share|f1}}\% of the world's living languages and the densest 5\% hold {{grid.top5pct_share|f1}}\%. The single densest square, in {{grid.top_n.0.place}}, contains {{grid.top_n.0.n|int}} living languages; the square with most lineages, in {{grid.top_lin.0.place}}, contains {{grid.top_lin.0.lin|int}}. The densest squares form a tropical belt through New Guinea and Melanesia, the Nigeria and Cameroon borderland, southern Mexico and the eastern Himalaya.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_diversity_map.png}
+\caption{Living spoken languages per {{grid.cell_km|int}} by {{grid.cell_km|int}} km square of the Equal Earth projection.}\label{fig:grid}\end{figure}
+
+{{TABLE_CELLS}}
+
+\subsection{Endangerment}
+Only {{aes.safe_pct|f1}}\% of spoken languages are rated not endangered (Figure~\ref{fig:aes}). {{aes.pct.threatened|f1}}\% are threatened, {{aes.pct.shifting|f1}}\% shifting, {{aes.pct.moribund|f1}}\% moribund and {{aes.pct.nearly extinct|f1}}\% nearly extinct: {{aes.endangered|int}} endangered languages, {{aes.endangered_pct|f1}}\% of all and {{aes.endangered_of_living_pct|f1}}\% of those still spoken. {{aes.extinct|int}} ({{aes.extinct_pct|f1}}\%) are extinct. The regional pattern follows the history of colonial settlement: {{macro_by.Australia.extinct_pct|f1}}\% of languages in Glottolog's Australia macroarea are extinct, {{macro_by.South America.extinct_pct|f1}}\% in South America and {{macro_by.North America.extinct_pct|f1}}\% in North America, against {{macro_by.Eurasia.extinct_pct|f1}}\% in Eurasia, {{macro_by.Africa.extinct_pct|f1}}\% in Africa and {{macro_by.Papunesia.extinct_pct|f1}}\% in Papunesia. Africa has the largest share rated not endangered ({{macro_by.Africa.safe_pct|f1}}\%). Of the {{counts.lineages|int}} lineages, {{aes.lineages_no_safe|int}} ({{aes.lineages_no_safe_pct|f1}}\%) have no language rated not endangered, and {{aes.isolates_endangered|int}} of the {{counts.isolates_living|int}} living isolates are endangered. Documentation is thin as well: for {{med.no_grammar_pct|f1}}\% of spoken languages the most extensive description is less than a grammar, and for {{med.wordlist_pct|f1}}\% it is a word list or less.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.92\textwidth]{f_aes_macro.png}
+\caption{Agglomerated Endangerment Status of spoken languages by Glottolog macroarea (number of languages in brackets).}\label{fig:aes}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_aes_map.png}
+\caption{Spoken languages by Agglomerated Endangerment Status; more endangered languages are drawn on top.}\label{fig:aesmap}\end{figure}
+
+\subsection{Speakers}
+The Wikidata counts cover {{speakers.n|int}} of the {{counts.spoken|int}} spoken languages ({{speakers.coverage_pct|f1}}\%, or {{speakers.coverage_living_pct|f1}}\% of living languages), and they are biased towards larger languages: {{speakers.safe_with_count_pct|f1}}\% of languages with a count are rated not endangered, against {{speakers.safe_overall_pct|f1}}\% of all. They add up to {{speakers.total|bn}} billion, a figure that mixes first-language and total counts and years and should not be read as a census. The concentration is nevertheless striking (Figure~\ref{fig:sp}). The 10 largest languages account for {{speakers.top10_share|f1}}\% of all speakers counted, the 20 largest for {{speakers.top20_share|f1}}\% and the 100 largest for {{speakers.top100_share|f1}}\%; half of all counted speakers speak one of just {{speakers.half_n|int}} languages, {{speakers.half_share_of_langs_pct}}\% of the world's spoken languages. The median language with a count has {{speakers.median|int}} speakers; {{speakers.under1000|int}} have fewer than 1,000. Indo-European languages account for {{speakers.by_family.0.pct|f1}}\% of counted speakers and Sino-Tibetan for {{speakers.by_family.1.pct|f1}}\%.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_speakers.png}
+\caption{Left: the 20 largest languages by Wikidata speaker count (millions, year of the count in brackets), coloured by family. Right: cumulative share of all speakers counted, languages ranked from largest.}\label{fig:sp}\end{figure}
+
+\subsection{Origins}
+Table~\ref{tab:homelands} lists the {{origins.n_hyp|int}} homeland hypotheses for {{origins.n_fam|int}} families, and Figure~\ref{fig:orig} maps them with the computed centres. Figure~\ref{fig:dist} gives the distances.
+
+{{TABLE_HOMELANDS}}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_origins_map.png}
+\caption{Proposed homelands from the literature (stars), with each family's diversity hotspot (diamonds) and present centre (rings) computed from Glottolog. Faint dots are all languages, coloured by family. Niger-Congo's computed points are for Atlantic-Congo.}\label{fig:orig}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=.86\textwidth]{f_origins_dist.png}
+\caption{Great-circle distance from each proposed homeland to the family's diversity hotspot (dot) and present centre (ring). Dashed line: 500 km.}\label{fig:dist}\end{figure}
+
+For {{origins.n_hot_within500|int}} of the {{origins.n_compared|int}} families the hotspot lies within 500 km of a proposed homeland (Austronesian, Bantu, Pama-Nyungan, Quechuan and the northern Uto-Aztecan proposal), whereas the present centre does so for only {{origins.n_centre_within500|int}}. The Austronesian hotspot is on Itbayat, between Taiwan and Luzon, {{origins.an_km|int}} km from the Taiwan homeland; the family's present centre, pulled south-east by more than a thousand Malayo-Polynesian languages, is {{origins.an_centre_km|int}} km away. The Pama-Nyungan hotspot is {{origins.pn_km|int}} km from the Gulf Plains homeland of \citet{bouckaert2018}, the Quechuan hotspot {{origins.qu_km|int}} km from central Peru and the Bantu hotspot {{origins.bantu_km|int}} km from the Grassfields (against {{origins.bantu_centre_km|int}} km for Bantu's present centre in the Congo basin).
+
+The method fails where it would be expected to. The Indo-European hotspot falls near the Adriatic, where {{origins.ie.hotspot_branches|int}} of its {{origins.ie.n_branches|int}} deep branches (Italic, Balto-Slavic, Albanian, Greek, Indo-Iranian through Romani, and Celtic) are found within 500 km. That reflects three thousand years of movement into the Balkans, not the family's beginning, and the hotspot is more than 1,000 km from all three proposals. The Sino-Tibetan hotspot falls in north-east India, where {{origins.st.hotspot_branches|int}} of {{origins.st.n_branches|int}} deep branches meet; that is closer to the minority view of a south-western origin than to the Yellow River homeland of \citet{zhang2019} and \citet{sagart2019}, and it is a reminder that the hotspot measures where branches survive, which depends on later history. For Turkic and Afro-Asiatic, families shaped by large and recent expansions, neither computed point is near any proposed homeland.
+
+\section{Discussion}
+Glottolog makes it possible to describe the world's languages consistently from the level of the family down to the dialect. Three patterns stand out. First, linguistic history is deep and plural: more than four hundred lineages remain unconnected on present evidence, most of them small and many in the Americas and New Guinea. Second, diversity is concentrated in a tropical belt where small communities have lived alongside one another for a very long time, while most speakers belong to a handful of languages that spread with states and empires. Third, most of that diversity is at risk: a majority of languages are endangered, and in Australia and the Americas a large share are already gone.
+
+On origins, a simple geographic heuristic recovers the accepted homelands of families whose spread is relatively recent and whose early branches were left behind in place, such as Austronesian and Bantu. It does not recover homelands where later migrations overlaid the early map, as for Indo-European and Turkic. That is consistent with the long-standing view that linguistic geography is evidence for, but not proof of, a homeland, and that ancient DNA and archaeology are needed to decide between hypotheses.
+
+\section{Limitations}
+First, the count of languages depends on where the line between language and dialect is drawn, and other catalogues count differently. Second, each language is a single point, usually the centre of its traditional area, so the map shows where languages come from rather than where their speakers now live; languages spoken across continents, such as English and Spanish, are one dot in Europe. Third, endangerment ratings are for whole languages, compiled from sources of different dates, and some will be out of date. Fourth, Wikidata speaker counts cover a minority of languages, favour larger ones, and mix first-language and total counts and years; the rule for choosing among them is a judgement. Fifth, country lists and coordinates in Glottolog are approximate, and grid counts depend on cell size and on coastlines. Sixth, the homeland hypotheses are typed in from the literature at the level of an approximate regional centre, and the computed hotspot and centre are heuristics sensitive to extinction, documentation and later migration. Finally, all data are from a single retrieval in {{meta.retrieved}}.
+
+\section{Conclusion}
+The world's {{counts.spoken|int}} spoken languages belong to {{counts.lineages|int}} lineages, are concentrated in a tropical belt, are mostly endangered and are spoken very unequally. The atlas lets readers explore the family tree, the geography of diversity and danger, and the competing hypotheses about where the great families began, with the evidence and its limits side by side.
+
+\section*{Data and code availability}
+The interactive atlas is at \url{{{meta.page}}}. Data and code are at \url{{{meta.repo}}} and archived with this paper at \url{https://doi.org/{{DOI}}}. Derived data are released under CC BY 4.0 (they include data from Glottolog, CC BY 4.0, and Wikidata, CC0), code under the MIT licence.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+{{BIBLIOGRAPHY}}
+\end{document}

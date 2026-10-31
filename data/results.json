@@ -1,0 +1,1916 @@
+{
+ "meta": {
+  "doi": "10.5281/zenodo.23844509",
+  "page": "https://maps.tristanhotham.com/language-origins/",
+  "repo": "https://github.com/Tristan-Hotham/language-origins",
+  "blog": "https://blog.tristanhotham.com/2026/10/31/language-origins/",
+  "retrieved": "2026",
+  "glottolog": "5.2.1",
+  "citation": "Hammarström, Harald & Forkel, Robert & Haspelmath, Martin & Bank, Sebastian. 2025. Glottolog 5.2.1. Leipzig: Max Planck Institute for Evolutionary Anthropology. (Available online at https://glottolog.org)"
+ },
+ "counts": {
+  "languoids_language_level": 8618,
+  "bookkeeping": 380,
+  "mapped": 8238,
+  "spoken": 7674,
+  "sign": 227,
+  "pidgin": 87,
+  "unclassifiable": 128,
+  "unattested": 68,
+  "artificial": 31,
+  "mixed": 4,
+  "register": 19,
+  "other_nonfamily": 564,
+  "no_coords": 168,
+  "families": 238,
+  "isolates": 183,
+  "lineages": 421,
+  "isolates_living": 103,
+  "isolates_extinct": 80,
+  "families_living": 211,
+  "families_extinct": 27,
+  "lineages_living": 314,
+  "families_le5": 135,
+  "families_ge100": 9,
+  "top5_share": 54.3,
+  "top5_n": 4170,
+  "nodes": 4646,
+  "dialects": 13706,
+  "max_depth_lang": "Barama",
+  "max_depth": 26,
+  "living": 6693
+ },
+ "top_families": [
+  {
+   "id": "atla1278",
+   "name": "Atlantic-Congo",
+   "n": 1408,
+   "pct": 18.3,
+   "living": 1367
+  },
+  {
+   "id": "aust1307",
+   "name": "Austronesian",
+   "n": 1276,
+   "pct": 16.6,
+   "living": 1226
+  },
+  {
+   "id": "indo1319",
+   "name": "Indo-European",
+   "n": 586,
+   "pct": 7.6,
+   "living": 485
+  },
+  {
+   "id": "sino1245",
+   "name": "Sino-Tibetan",
+   "n": 519,
+   "pct": 6.8,
+   "living": 497
+  },
+  {
+   "id": "afro1255",
+   "name": "Afro-Asiatic",
+   "n": 381,
+   "pct": 5.0,
+   "living": 332
+  },
+  {
+   "id": "nucl1709",
+   "name": "Nuclear Trans New Guinea",
+   "n": 317,
+   "pct": 4.1,
+   "living": 315
+  },
+  {
+   "id": "pama1250",
+   "name": "Pama-Nyungan",
+   "n": 250,
+   "pct": 3.3,
+   "living": 80
+  },
+  {
+   "id": "otom1299",
+   "name": "Otomanguean",
+   "n": 181,
+   "pct": 2.4,
+   "living": 175
+  },
+  {
+   "id": "aust1305",
+   "name": "Austroasiatic",
+   "n": 158,
+   "pct": 2.1,
+   "living": 154
+  },
+  {
+   "id": "taik1256",
+   "name": "Tai-Kadai",
+   "n": 95,
+   "pct": 1.2,
+   "living": 91
+  },
+  {
+   "id": "drav1251",
+   "name": "Dravidian",
+   "n": 82,
+   "pct": 1.1,
+   "living": 76
+  },
+  {
+   "id": "araw1281",
+   "name": "Arawakan",
+   "n": 77,
+   "pct": 1.0,
+   "living": 45
+  },
+  {
+   "id": "mand1469",
+   "name": "Mande",
+   "n": 75,
+   "pct": 1.0,
+   "living": 73
+  },
+  {
+   "id": "tupi1275",
+   "name": "Tupian",
+   "n": 70,
+   "pct": 0.9,
+   "living": 51
+  },
+  {
+   "id": "utoa1244",
+   "name": "Uto-Aztecan",
+   "n": 69,
+   "pct": 0.9,
+   "living": 53
+  }
+ ],
+ "isolate_examples": [
+  "Basque",
+  "Burushaski",
+  "Nihali",
+  "Kusunda",
+  "Zuni",
+  "Sumerian"
+ ],
+ "english_path": [
+  "Indo-European",
+  "Classical Indo-European",
+  "Germanic",
+  "Northwest Germanic",
+  "West Germanic",
+  "North Sea Germanic",
+  "Anglo-Frisian",
+  "Anglic",
+  "Later Anglic",
+  "Middle-Modern English",
+  "Macro-English"
+ ],
+ "english_depth": 11,
+ "ie_ii": 321,
+ "ie_ger": 106,
+ "ie_ita": 85,
+ "aes": {
+  "counts": {
+   "not endangered": 2686,
+   "threatened": 1541,
+   "shifting": 1750,
+   "moribund": 415,
+   "nearly extinct": 292,
+   "extinct": 981,
+   "no data": 9
+  },
+  "pct": {
+   "not endangered": 35.0,
+   "threatened": 20.1,
+   "shifting": 22.8,
+   "moribund": 5.4,
+   "nearly extinct": 3.8,
+   "extinct": 12.8,
+   "no data": 0.1
+  },
+  "endangered": 3998,
+  "endangered_pct": 52.1,
+  "extinct": 981,
+  "extinct_pct": 12.8,
+  "endangered_or_extinct_pct": 64.9,
+  "endangered_of_living_pct": 59.7,
+  "severe": 707,
+  "severe_pct": 9.2,
+  "safe_pct": 35.0,
+  "nodata": 9,
+  "lineages_no_safe": 324,
+  "lineages_no_safe_pct": 77.0,
+  "families_all_endangered": 119,
+  "isolates_endangered": 98,
+  "isolates_endangered_pct": 95.1
+ },
+ "macro": [
+  {
+   "name": "Africa",
+   "n": 2212,
+   "endangered_pct": 36.8,
+   "extinct_pct": 4.2,
+   "safe_pct": 58.9,
+   "lineages": 53,
+   "lineages_living": 49,
+   "counts": [
+    1302,
+    397,
+    340,
+    53,
+    25,
+    94,
+    1
+   ]
+  },
+  {
+   "name": "Papunesia",
+   "n": 2124,
+   "endangered_pct": 61.8,
+   "extinct_pct": 3.1,
+   "safe_pct": 35.1,
+   "lineages": 126,
+   "lineages_living": 124,
+   "counts": [
+    746,
+    478,
+    641,
+    137,
+    57,
+    65,
+    0
+   ]
+  },
+  {
+   "name": "Eurasia",
+   "n": 1740,
+   "endangered_pct": 56.5,
+   "extinct_pct": 11.8,
+   "safe_pct": 31.5,
+   "lineages": 38,
+   "lineages_living": 30,
+   "counts": [
+    548,
+    412,
+    415,
+    105,
+    51,
+    205,
+    4
+   ]
+  },
+  {
+   "name": "North America",
+   "n": 671,
+   "endangered_pct": 62.0,
+   "extinct_pct": 28.2,
+   "safe_pct": 9.2,
+   "lineages": 75,
+   "lineages_living": 38,
+   "counts": [
+    62,
+    158,
+    145,
+    53,
+    60,
+    189,
+    4
+   ]
+  },
+  {
+   "name": "South America",
+   "n": 572,
+   "endangered_pct": 60.1,
+   "extinct_pct": 35.1,
+   "safe_pct": 4.7,
+   "lineages": 110,
+   "lineages_living": 65,
+   "counts": [
+    27,
+    91,
+    173,
+    29,
+    51,
+    201,
+    0
+   ]
+  },
+  {
+   "name": "Australia",
+   "n": 355,
+   "endangered_pct": 35.8,
+   "extinct_pct": 63.9,
+   "safe_pct": 0.3,
+   "lineages": 33,
+   "lineages_living": 21,
+   "counts": [
+    1,
+    5,
+    36,
+    38,
+    48,
+    227,
+    0
+   ]
+  }
+ ],
+ "macro_by": {
+  "Africa": {
+   "name": "Africa",
+   "n": 2212,
+   "endangered_pct": 36.8,
+   "extinct_pct": 4.2,
+   "safe_pct": 58.9,
+   "lineages": 53,
+   "lineages_living": 49,
+   "counts": [
+    1302,
+    397,
+    340,
+    53,
+    25,
+    94,
+    1
+   ]
+  },
+  "Papunesia": {
+   "name": "Papunesia",
+   "n": 2124,
+   "endangered_pct": 61.8,
+   "extinct_pct": 3.1,
+   "safe_pct": 35.1,
+   "lineages": 126,
+   "lineages_living": 124,
+   "counts": [
+    746,
+    478,
+    641,
+    137,
+    57,
+    65,
+    0
+   ]
+  },
+  "Eurasia": {
+   "name": "Eurasia",
+   "n": 1740,
+   "endangered_pct": 56.5,
+   "extinct_pct": 11.8,
+   "safe_pct": 31.5,
+   "lineages": 38,
+   "lineages_living": 30,
+   "counts": [
+    548,
+    412,
+    415,
+    105,
+    51,
+    205,
+    4
+   ]
+  },
+  "North America": {
+   "name": "North America",
+   "n": 671,
+   "endangered_pct": 62.0,
+   "extinct_pct": 28.2,
+   "safe_pct": 9.2,
+   "lineages": 75,
+   "lineages_living": 38,
+   "counts": [
+    62,
+    158,
+    145,
+    53,
+    60,
+    189,
+    4
+   ]
+  },
+  "South America": {
+   "name": "South America",
+   "n": 572,
+   "endangered_pct": 60.1,
+   "extinct_pct": 35.1,
+   "safe_pct": 4.7,
+   "lineages": 110,
+   "lineages_living": 65,
+   "counts": [
+    27,
+    91,
+    173,
+    29,
+    51,
+    201,
+    0
+   ]
+  },
+  "Australia": {
+   "name": "Australia",
+   "n": 355,
+   "endangered_pct": 35.8,
+   "extinct_pct": 63.9,
+   "safe_pct": 0.3,
+   "lineages": 33,
+   "lineages_living": 21,
+   "counts": [
+    1,
+    5,
+    36,
+    38,
+    48,
+    227,
+    0
+   ]
+  }
+ },
+ "med": {
+  "wordlist_or_less": 1433,
+  "wordlist_pct": 18.7,
+  "grammar_or_more": 2933,
+  "grammar_pct": 38.2,
+  "no_grammar_pct": 61.8
+ },
+ "speakers": {
+  "n": 1627,
+  "coverage_pct": 21.2,
+  "coverage_living_pct": 24.3,
+  "total": 6939414250.5,
+  "top20_share": 62.6,
+  "top10_share": 50.9,
+  "top100_share": 89.8,
+  "median": 20000.0,
+  "under1000": 374,
+  "under10000": 703,
+  "n_undated": 495,
+  "since2015": 257,
+  "before2000": 174,
+  "top": [
+   {
+    "id": "mand1415",
+    "name": "Mandarin Chinese",
+    "n": 918000000.0,
+    "year": "2019",
+    "family": "Sino-Tibetan"
+   },
+   {
+    "id": "stan1288",
+    "name": "Spanish",
+    "n": 485000000.0,
+    "year": "2023",
+    "family": "Indo-European"
+   },
+   {
+    "id": "stan1293",
+    "name": "English",
+    "n": 379007140.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "hind1269",
+    "name": "Hindi",
+    "n": 341000000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "stan1318",
+    "name": "Standard Arabic",
+    "n": 335000000.0,
+    "year": "2023",
+    "family": "Afro-Asiatic"
+   },
+   {
+    "id": "beng1280",
+    "name": "Bengali",
+    "n": 300000000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "indo1316",
+    "name": "Standard Indonesian",
+    "n": 270200000.0,
+    "year": null,
+    "family": "Austronesian"
+   },
+   {
+    "id": "port1283",
+    "name": "Portuguese",
+    "n": 221000000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "russ1263",
+    "name": "Russian",
+    "n": 154000000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "nucl1643",
+    "name": "Japanese",
+    "n": 128000000.0,
+    "year": "2019",
+    "family": "Japonic"
+   },
+   {
+    "id": "egyp1253",
+    "name": "Egyptian Arabic",
+    "n": 100542400.0,
+    "year": "2021",
+    "family": "Afro-Asiatic"
+   },
+   {
+    "id": "fili1244",
+    "name": "Filipino",
+    "n": 90000000.0,
+    "year": null,
+    "family": "Austronesian"
+   },
+   {
+    "id": "mara1378",
+    "name": "Marathi",
+    "n": 83100000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "telu1262",
+    "name": "Telugu",
+    "n": 82000000.0,
+    "year": "2019",
+    "family": "Dravidian"
+   },
+   {
+    "id": "wuch1236",
+    "name": "Wu Chinese",
+    "n": 81400000.0,
+    "year": "2019",
+    "family": "Sino-Tibetan"
+   },
+   {
+    "id": "kore1280",
+    "name": "Korean",
+    "n": 77300000.0,
+    "year": "2019",
+    "family": "Koreanic"
+   },
+   {
+    "id": "stan1290",
+    "name": "French",
+    "n": 77200000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "viet1252",
+    "name": "Vietnamese",
+    "n": 76000000.0,
+    "year": "2019",
+    "family": "Austroasiatic"
+   },
+   {
+    "id": "tami1289",
+    "name": "Tamil",
+    "n": 75000000.0,
+    "year": "2019",
+    "family": "Dravidian"
+   },
+   {
+    "id": "yuec1235",
+    "name": "Yue Chinese",
+    "n": 73100000.0,
+    "year": "2019",
+    "family": "Sino-Tibetan"
+   },
+   {
+    "id": "urdu1245",
+    "name": "Urdu",
+    "n": 68600000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "ital1282",
+    "name": "Italian",
+    "n": 64800000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "stan1295",
+    "name": "German",
+    "n": 58452300.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "guja1252",
+    "name": "Gujarati",
+    "n": 56400000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   },
+   {
+    "id": "west2369",
+    "name": "Western Farsi",
+    "n": 52800000.0,
+    "year": "2019",
+    "family": "Indo-European"
+   }
+  ],
+  "half_n": 10,
+  "half_share_of_langs_pct": 0.13,
+  "by_family": [
+   {
+    "id": "indo1319",
+    "name": "Indo-European",
+    "n": 3152041462.0,
+    "pct": 45.4
+   },
+   {
+    "id": "sino1245",
+    "name": "Sino-Tibetan",
+    "n": 1357088402.0,
+    "pct": 19.6
+   },
+   {
+    "id": "afro1255",
+    "name": "Afro-Asiatic",
+    "n": 788749300.0,
+    "pct": 11.4
+   },
+   {
+    "id": "aust1307",
+    "name": "Austronesian",
+    "n": 469841729.0,
+    "pct": 6.8
+   },
+   {
+    "id": "atla1278",
+    "name": "Atlantic-Congo",
+    "n": 322968763.0,
+    "pct": 4.7
+   },
+   {
+    "id": "drav1251",
+    "name": "Dravidian",
+    "n": 245507350.0,
+    "pct": 3.5
+   },
+   {
+    "id": "japo1237",
+    "name": "Japonic",
+    "n": 129061900.0,
+    "pct": 1.9
+   },
+   {
+    "id": "turk1311",
+    "name": "Turkic",
+    "n": 117511686.0,
+    "pct": 1.7
+   },
+   {
+    "id": "aust1305",
+    "name": "Austroasiatic",
+    "n": 110204668.0,
+    "pct": 1.6
+   },
+   {
+    "id": "kore1284",
+    "name": "Koreanic",
+    "n": 77305000.0,
+    "pct": 1.1
+   }
+  ],
+  "endangered_with_count": 944,
+  "safe_with_count_pct": 37.9,
+  "safe_overall_pct": 35.0
+ },
+ "countries": {
+  "top_n": [
+   {
+    "iso": "PG",
+    "name": "Papua New Guinea",
+    "n": 850,
+    "lineages": 77,
+    "families": 48,
+    "isolates": 29,
+    "area": 462298,
+    "per10k": 18.39,
+    "endangered": 452
+   },
+   {
+    "iso": "ID",
+    "name": "Indonesia",
+    "n": 702,
+    "lineages": 55,
+    "families": 34,
+    "isolates": 21,
+    "area": 1863912,
+    "per10k": 3.77,
+    "endangered": 568
+   },
+   {
+    "iso": "NG",
+    "name": "Nigeria",
+    "n": 522,
+    "lineages": 8,
+    "families": 8,
+    "isolates": 0,
+    "area": 907833,
+    "per10k": 5.75,
+    "endangered": 216
+   },
+   {
+    "iso": "IN",
+    "name": "India",
+    "n": 450,
+    "lineages": 12,
+    "families": 8,
+    "isolates": 4,
+    "area": 3148263,
+    "per10k": 1.43,
+    "endangered": 251
+   },
+   {
+    "iso": "CN",
+    "name": "China",
+    "n": 395,
+    "lineages": 11,
+    "families": 11,
+    "isolates": 0,
+    "area": 9373022,
+    "per10k": 0.42,
+    "endangered": 260
+   },
+   {
+    "iso": "CM",
+    "name": "Cameroon",
+    "n": 293,
+    "lineages": 5,
+    "families": 5,
+    "isolates": 0,
+    "area": 463871,
+    "per10k": 6.32,
+    "endangered": 117
+   },
+   {
+    "iso": "MX",
+    "name": "Mexico",
+    "n": 282,
+    "lineages": 12,
+    "families": 11,
+    "isolates": 1,
+    "area": 1957881,
+    "per10k": 1.44,
+    "endangered": 225
+   },
+   {
+    "iso": "CD",
+    "name": "Dem. Rep. Congo",
+    "n": 228,
+    "lineages": 4,
+    "families": 4,
+    "isolates": 0,
+    "area": 2324448,
+    "per10k": 0.98,
+    "endangered": 57
+   },
+   {
+    "iso": "BR",
+    "name": "Brazil",
+    "n": 172,
+    "lineages": 31,
+    "families": 21,
+    "isolates": 10,
+    "area": 8467116,
+    "per10k": 0.2,
+    "endangered": 163
+   },
+   {
+    "iso": "PH",
+    "name": "Philippines",
+    "n": 167,
+    "lineages": 2,
+    "families": 2,
+    "isolates": 0,
+    "area": 289185,
+    "per10k": 5.77,
+    "endangered": 58
+   },
+   {
+    "iso": "US",
+    "name": "United States of America",
+    "n": 147,
+    "lineages": 29,
+    "families": 24,
+    "isolates": 5,
+    "area": 9455765,
+    "per10k": 0.16,
+    "endangered": 131
+   },
+   {
+    "iso": "RU",
+    "name": "Russia",
+    "n": 141,
+    "lineages": 16,
+    "families": 16,
+    "isolates": 0,
+    "area": 16972455,
+    "per10k": 0.08,
+    "endangered": 117
+   }
+  ],
+  "top_lineages": [
+   {
+    "iso": "PG",
+    "name": "Papua New Guinea",
+    "n": 850,
+    "lineages": 77,
+    "families": 48,
+    "isolates": 29,
+    "area": 462298,
+    "per10k": 18.39,
+    "endangered": 452
+   },
+   {
+    "iso": "ID",
+    "name": "Indonesia",
+    "n": 702,
+    "lineages": 55,
+    "families": 34,
+    "isolates": 21,
+    "area": 1863912,
+    "per10k": 3.77,
+    "endangered": 568
+   },
+   {
+    "iso": "BR",
+    "name": "Brazil",
+    "n": 172,
+    "lineages": 31,
+    "families": 21,
+    "isolates": 10,
+    "area": 8467116,
+    "per10k": 0.2,
+    "endangered": 163
+   },
+   {
+    "iso": "US",
+    "name": "United States of America",
+    "n": 147,
+    "lineages": 29,
+    "families": 24,
+    "isolates": 5,
+    "area": 9455765,
+    "per10k": 0.16,
+    "endangered": 131
+   },
+   {
+    "iso": "SD",
+    "name": "Sudan",
+    "n": 93,
+    "lineages": 25,
+    "families": 23,
+    "isolates": 2,
+    "area": 1856673,
+    "per10k": 0.5,
+    "endangered": 57
+   },
+   {
+    "iso": "AU",
+    "name": "Australia",
+    "n": 139,
+    "lineages": 24,
+    "families": 20,
+    "isolates": 4,
+    "area": 7691389,
+    "per10k": 0.18,
+    "endangered": 134
+   },
+   {
+    "iso": "CO",
+    "name": "Colombia",
+    "n": 85,
+    "lineages": 24,
+    "families": 17,
+    "isolates": 7,
+    "area": 1134460,
+    "per10k": 0.75,
+    "endangered": 81
+   },
+   {
+    "iso": "PE",
+    "name": "Peru",
+    "n": 92,
+    "lineages": 19,
+    "families": 16,
+    "isolates": 3,
+    "area": 1291015,
+    "per10k": 0.71,
+    "endangered": 79
+   },
+   {
+    "iso": "RU",
+    "name": "Russia",
+    "n": 141,
+    "lineages": 16,
+    "families": 16,
+    "isolates": 0,
+    "area": 16972455,
+    "per10k": 0.08,
+    "endangered": 117
+   },
+   {
+    "iso": "VE",
+    "name": "Venezuela",
+    "n": 42,
+    "lineages": 15,
+    "families": 10,
+    "isolates": 5,
+    "area": 910439,
+    "per10k": 0.46,
+    "endangered": 39
+   },
+   {
+    "iso": "BO",
+    "name": "Bolivia",
+    "n": 41,
+    "lineages": 15,
+    "families": 12,
+    "isolates": 3,
+    "area": 1086625,
+    "per10k": 0.38,
+    "endangered": 35
+   },
+   {
+    "iso": "ET",
+    "name": "Ethiopia",
+    "n": 93,
+    "lineages": 14,
+    "families": 10,
+    "isolates": 4,
+    "area": 1127094,
+    "per10k": 0.83,
+    "endangered": 43
+   }
+  ],
+  "top_density": [
+   {
+    "iso": "VU",
+    "name": "Vanuatu",
+    "n": 115,
+    "lineages": 2,
+    "families": 2,
+    "isolates": 0,
+    "area": 11253,
+    "per10k": 102.19,
+    "endangered": 87
+   },
+   {
+    "iso": "SB",
+    "name": "Solomon Is.",
+    "n": 70,
+    "lineages": 6,
+    "families": 2,
+    "isolates": 4,
+    "area": 25633,
+    "per10k": 27.31,
+    "endangered": 25
+   },
+   {
+    "iso": "NC",
+    "name": "New Caledonia",
+    "n": 35,
+    "lineages": 2,
+    "families": 2,
+    "isolates": 0,
+    "area": 18616,
+    "per10k": 18.8,
+    "endangered": 30
+   },
+   {
+    "iso": "PG",
+    "name": "Papua New Guinea",
+    "n": 850,
+    "lineages": 77,
+    "families": 48,
+    "isolates": 29,
+    "area": 462298,
+    "per10k": 18.39,
+    "endangered": 452
+   },
+   {
+    "iso": "GM",
+    "name": "Gambia",
+    "n": 17,
+    "lineages": 3,
+    "families": 3,
+    "isolates": 0,
+    "area": 10275,
+    "per10k": 16.55,
+    "endangered": 6
+   },
+   {
+    "iso": "TL",
+    "name": "Timor-Leste",
+    "n": 19,
+    "lineages": 2,
+    "families": 2,
+    "isolates": 0,
+    "area": 14958,
+    "per10k": 12.7,
+    "endangered": 11
+   },
+   {
+    "iso": "GW",
+    "name": "Guinea-Bissau",
+    "n": 31,
+    "lineages": 3,
+    "families": 3,
+    "isolates": 0,
+    "area": 31931,
+    "per10k": 9.71,
+    "endangered": 19
+   },
+   {
+    "iso": "IL",
+    "name": "Israel",
+    "n": 21,
+    "lineages": 3,
+    "families": 3,
+    "isolates": 0,
+    "area": 22033,
+    "per10k": 9.53,
+    "endangered": 10
+   },
+   {
+    "iso": "TG",
+    "name": "Togo",
+    "n": 49,
+    "lineages": 2,
+    "families": 2,
+    "isolates": 0,
+    "area": 56901,
+    "per10k": 8.61,
+    "endangered": 9
+   },
+   {
+    "iso": "NP",
+    "name": "Nepal",
+    "n": 112,
+    "lineages": 4,
+    "families": 3,
+    "isolates": 1,
+    "area": 146976,
+    "per10k": 7.62,
+    "endangered": 89
+   }
+  ],
+  "n_countries": 232,
+  "one_language_n": 39,
+  "top3_share_pct": 30.7,
+  "png_n": 850,
+  "png_lineages": 77
+ },
+ "grid": {
+  "cell_km": 200,
+  "n_cells_with": 1627,
+  "top_n": [
+   {
+    "k": "69,-4",
+    "n": 148,
+    "lin": 4,
+    "place": "Madang, Papua New Guinea",
+    "land": 33263
+   },
+   {
+    "k": "68,-3",
+    "n": 105,
+    "lin": 9,
+    "place": "East Sepik, Papua New Guinea",
+    "land": 32862
+   },
+   {
+    "k": "-46,10",
+    "n": 80,
+    "lin": 2,
+    "place": "Oaxaca, Mexico",
+    "land": 36169
+   },
+   {
+    "k": "4,6",
+    "n": 68,
+    "lin": 2,
+    "place": "Bauchi, Nigeria",
+    "land": 40000
+   },
+   {
+    "k": "67,-3",
+    "n": 65,
+    "lin": 23,
+    "place": "Sandaun, Papua New Guinea",
+    "land": 40000
+   },
+   {
+    "k": "-46,11",
+    "n": 64,
+    "lin": 3,
+    "place": "Oaxaca, Mexico",
+    "land": 40000
+   },
+   {
+    "k": "4,4",
+    "n": 61,
+    "lin": 1,
+    "place": "Nord-Ouest, Cameroon",
+    "land": 40000
+   },
+   {
+    "k": "4,3",
+    "n": 57,
+    "lin": 2,
+    "place": "Nord-Ouest, Cameroon",
+    "land": 39792
+   }
+  ],
+  "top_lin": [
+   {
+    "k": "67,-3",
+    "n": 65,
+    "lin": 23,
+    "place": "Sandaun, Papua New Guinea",
+    "land": 40000
+   },
+   {
+    "k": "68,-5",
+    "n": 28,
+    "lin": 12,
+    "place": "Southern Highlands, Papua New Guinea",
+    "land": 38684
+   },
+   {
+    "k": "68,-3",
+    "n": 105,
+    "lin": 9,
+    "place": "East Sepik, Papua New Guinea",
+    "land": 32862
+   },
+   {
+    "k": "70,-7",
+    "n": 24,
+    "lin": 9,
+    "place": "Central, Papua New Guinea",
+    "land": 18002
+   },
+   {
+    "k": "69,-5",
+    "n": 50,
+    "lin": 8,
+    "place": "Morobe, Papua New Guinea",
+    "land": 39568
+   },
+   {
+    "k": "66,-2",
+    "n": 43,
+    "lin": 8,
+    "place": "Papua, Indonesia",
+    "land": 30350
+   },
+   {
+    "k": "70,-6",
+    "n": 22,
+    "lin": 8,
+    "place": "Northern, Papua New Guinea",
+    "land": 28185
+   },
+   {
+    "k": "69,-3",
+    "n": 39,
+    "lin": 7,
+    "place": "Madang, Papua New Guinea",
+    "land": 8564
+   }
+  ],
+  "cells_ge50": 10,
+  "cells_ge10lin": 2,
+  "n_land_cells": 4510,
+  "top1pct_share": 27.6,
+  "top1pct_cells": 45,
+  "top5pct_share": 59.0
+ },
+ "origins": {
+  "n_hyp": 16,
+  "n_fam": 11,
+  "rows": [
+   {
+    "family": "Indo-European",
+    "hyp": "Steppe hypothesis",
+    "node": "indo1319",
+    "km_hotspot": 1808,
+    "km_centre": 1278,
+    "km_branch": 814
+   },
+   {
+    "family": "Indo-European",
+    "hyp": "Anatolian hypothesis",
+    "node": "indo1319",
+    "km_hotspot": 1346,
+    "km_centre": 1595,
+    "km_branch": 837
+   },
+   {
+    "family": "Indo-European",
+    "hyp": "Hybrid hypothesis",
+    "node": "indo1319",
+    "km_hotspot": 2237,
+    "km_centre": 597,
+    "km_branch": 1378
+   },
+   {
+    "family": "Austronesian",
+    "hyp": "Out of Taiwan",
+    "node": "aust1307",
+    "km_hotspot": 340,
+    "km_centre": 3368,
+    "km_branch": 355
+   },
+   {
+    "family": "Bantu",
+    "hyp": "Grassfields origin",
+    "node": "narr1281",
+    "km_hotspot": 497,
+    "km_centre": 1994,
+    "km_branch": 1250
+   },
+   {
+    "family": "Uralic",
+    "hyp": "Volga-Kama",
+    "node": "ural1272",
+    "km_hotspot": 990,
+    "km_centre": 991,
+    "km_branch": 590
+   },
+   {
+    "family": "Uralic",
+    "hyp": "Western Siberia",
+    "node": "ural1272",
+    "km_hotspot": 1973,
+    "km_centre": 2763,
+    "km_branch": 2615
+   },
+   {
+    "family": "Turkic",
+    "hyp": "Eastern steppe",
+    "node": "turk1311",
+    "km_hotspot": 1143,
+    "km_centre": 2813,
+    "km_branch": 2165
+   },
+   {
+    "family": "Sino-Tibetan",
+    "hyp": "Yellow River",
+    "node": "sino1245",
+    "km_hotspot": 1686,
+    "km_centre": 1460,
+    "km_branch": 1520
+   },
+   {
+    "family": "Afro-Asiatic",
+    "hyp": "African origin",
+    "node": "afro1255",
+    "km_hotspot": 2735,
+    "km_centre": 1852,
+    "km_branch": 1580
+   },
+   {
+    "family": "Afro-Asiatic",
+    "hyp": "Levantine origin",
+    "node": "afro1255",
+    "km_hotspot": 3358,
+    "km_centre": 2504,
+    "km_branch": 1697
+   },
+   {
+    "family": "Niger-Congo",
+    "hyp": "West African origin",
+    "node": "atla1278",
+    "km_hotspot": 1324,
+    "km_centre": 2054,
+    "km_branch": 709
+   },
+   {
+    "family": "Pama-Nyungan",
+    "hyp": "Gulf Plains",
+    "node": "pama1250",
+    "km_hotspot": 178,
+    "km_centre": 746,
+    "km_branch": 528
+   },
+   {
+    "family": "Uto-Aztecan",
+    "hyp": "Southern origin",
+    "node": "utoa1244",
+    "km_hotspot": 1816,
+    "km_centre": 197,
+    "km_branch": 910
+   },
+   {
+    "family": "Uto-Aztecan",
+    "hyp": "Northern origin",
+    "node": "utoa1244",
+    "km_hotspot": 259,
+    "km_centre": 1630,
+    "km_branch": 874
+   },
+   {
+    "family": "Quechuan",
+    "hyp": "Central Peru",
+    "node": "quec1387",
+    "km_hotspot": 288,
+    "km_centre": 357,
+    "km_branch": 376
+   }
+  ],
+  "hot_within500": [
+   "Austronesian",
+   "Bantu",
+   "Pama-Nyungan",
+   "Quechuan",
+   "Uto-Aztecan"
+  ],
+  "centre": {
+   "aust1307": {
+    "node": "aust1307",
+    "name": "Austronesian",
+    "n": 1276,
+    "n_living": 1226,
+    "centre": [
+     -3.24,
+     135.119
+    ],
+    "n_branches": 10,
+    "hotspot": [
+     20.77,
+     121.85
+    ],
+    "hotspot_lang": "Itbayat",
+    "hotspot_branches": 10,
+    "branch_centre": [
+     20.893,
+     122.546
+    ],
+    "branches": [
+     "Atayalic",
+     "Bunun",
+     "East Formosan",
+     "Malayo-Polynesian",
+     "Northwest Formosan",
+     "Paiwan",
+     "Puyuma",
+     "Rukai",
+     "Tsouic",
+     "Western Plains Austronesian"
+    ],
+    "homeland_km": {
+     "Out of Taiwan": {
+      "centre": 3368,
+      "hotspot": 340,
+      "branch_centre": 355
+     }
+    }
+   },
+   "ural1272": {
+    "node": "ural1272",
+    "name": "Uralic",
+    "n": 49,
+    "n_living": 41,
+    "centre": [
+     64.373,
+     44.443
+    ],
+    "n_branches": 9,
+    "hotspot": [
+     64.412,
+     61.344
+    ],
+    "hotspot_lang": "Northern Mansi",
+    "hotspot_branches": 4,
+    "branch_centre": [
+     60.911,
+     47.293
+    ],
+    "branches": [
+     "Finnic",
+     "Hungaric",
+     "Khantyic",
+     "Mansic",
+     "Mari",
+     "Mordvin",
+     "Permian",
+     "Saami",
+     "Samoyedic"
+    ],
+    "homeland_km": {
+     "Volga-Kama": {
+      "centre": 991,
+      "hotspot": 990,
+      "branch_centre": 590
+     },
+     "Western Siberia": {
+      "centre": 2763,
+      "hotspot": 1973,
+      "branch_centre": 2615
+     }
+    }
+   },
+   "atla1278": {
+    "node": "atla1278",
+    "name": "Atlantic-Congo",
+    "n": 1408,
+    "n_living": 1367,
+    "centre": [
+     2.882,
+     13.73
+    ],
+    "n_branches": 7,
+    "hotspot": [
+     11.467,
+     -15.135
+    ],
+    "hotspot_lang": "Biafada",
+    "hotspot_branches": 5,
+    "branch_centre": [
+     9.984,
+     -9.401
+    ],
+    "branches": [
+     "Cangin",
+     "Gola",
+     "Limba",
+     "Mansoanka",
+     "Mel",
+     "North-Central Atlantic",
+     "Volta-Congo"
+    ],
+    "homeland_km": {
+     "West African origin": {
+      "centre": 2054,
+      "hotspot": 1324,
+      "branch_centre": 709
+     }
+    }
+   },
+   "utoa1244": {
+    "node": "utoa1244",
+    "name": "Uto-Aztecan",
+    "n": 69,
+    "n_living": 53,
+    "centre": [
+     24.27,
+     -102.968
+    ],
+    "n_branches": 2,
+    "hotspot": [
+     33.532,
+     -116.691
+    ],
+    "hotspot_lang": "Cahuilla",
+    "hotspot_branches": 2,
+    "branch_centre": [
+     29.172,
+     -108.273
+    ],
+    "branches": [
+     "Northern Uto-Aztecan",
+     "Southern Uto-Aztecan"
+    ],
+    "homeland_km": {
+     "Southern origin": {
+      "centre": 197,
+      "hotspot": 1816,
+      "branch_centre": 910
+     },
+     "Northern origin": {
+      "centre": 1630,
+      "hotspot": 259,
+      "branch_centre": 874
+     }
+    }
+   },
+   "narr1281": {
+    "node": "narr1281",
+    "name": "Narrow Bantu",
+    "n": 563,
+    "n_living": 557,
+    "centre": [
+     -4.905,
+     24.558
+    ],
+    "n_branches": 4,
+    "hotspot": [
+     1.724,
+     11.615
+    ],
+    "hotspot_lang": "Fang (Equatorial Guinea)",
+    "hotspot_branches": 3,
+    "branch_centre": [
+     -1.309,
+     18.853
+    ],
+    "branches": [
+     "Bantu A-B10-B20-B30",
+     "Central-Western Bantu",
+     "East Bantu",
+     "Mbam-Bubi"
+    ],
+    "homeland_km": {
+     "Grassfields origin": {
+      "centre": 1994,
+      "hotspot": 497,
+      "branch_centre": 1250
+     }
+    }
+   },
+   "indo1319": {
+    "node": "indo1319",
+    "name": "Indo-European",
+    "n": 586,
+    "n_living": 485,
+    "centre": [
+     39.961,
+     51.459
+    ],
+    "n_branches": 10,
+    "hotspot": [
+     42.709,
+     18.024
+    ],
+    "hotspot_lang": "Dalmatian",
+    "hotspot_branches": 6,
+    "branch_centre": [
+     45.653,
+     29.853
+    ],
+    "branches": [
+     "Albanian",
+     "Anatolian",
+     "Armenic",
+     "Balto-Slavic",
+     "Celtic",
+     "Germanic",
+     "Graeco-Phrygian",
+     "Indo-Iranian",
+     "Italic",
+     "Tokharian"
+    ],
+    "homeland_km": {
+     "Steppe hypothesis": {
+      "centre": 1278,
+      "hotspot": 1808,
+      "branch_centre": 814
+     },
+     "Anatolian hypothesis": {
+      "centre": 1595,
+      "hotspot": 1346,
+      "branch_centre": 837
+     },
+     "Hybrid hypothesis": {
+      "centre": 597,
+      "hotspot": 2237,
+      "branch_centre": 1378
+     }
+    }
+   },
+   "quec1387": {
+    "node": "quec1387",
+    "name": "Quechuan",
+    "n": 43,
+    "n_living": 42,
+    "centre": [
+     -8.865,
+     -75.792
+    ],
+    "n_branches": 6,
+    "hotspot": [
+     -9.571,
+     -75.594
+    ],
+    "hotspot_lang": "Huallaga Huánuco Quechua",
+    "hotspot_branches": 5,
+    "branch_centre": [
+     -8.635,
+     -76.188
+    ],
+    "branches": [
+     "Cajamarca-Lambayeque Quechua",
+     "Classical Quechua",
+     "Colombia-Ecuador Quechua",
+     "Quechua I",
+     "San Martin-Amazonas Quechua",
+     "Southern Quechua"
+    ],
+    "homeland_km": {
+     "Central Peru": {
+      "centre": 357,
+      "hotspot": 288,
+      "branch_centre": 376
+     }
+    }
+   },
+   "pama1250": {
+    "node": "pama1250",
+    "name": "Pama-Nyungan",
+    "n": 250,
+    "n_living": 80,
+    "centre": [
+     -20.309,
+     134.148
+    ],
+    "n_branches": 20,
+    "hotspot": [
+     -19.29,
+     142.476
+    ],
+    "hotspot_lang": "Mbara-Yanga",
+    "hotspot_branches": 9,
+    "branch_centre": [
+     -23.157,
+     141.968
+    ],
+    "branches": [
+     "Arandic-Thura-Yura",
+     "Desert Nyungic",
+     "Dyirbal",
+     "East Queensland Border Pama Nyungan",
+     "Ganaic",
+     "Greater Maric",
+     "Kala Lagaw Ya",
+     "Kalkatungic",
+     "Karnic",
+     "Macleay-New England",
+     "Ngarna",
+     "Nyawaygic",
+     "Paman",
+     "Rockhampton-Gladstone",
+     "South-West Pama-Nyungan",
+     "Southeastern Pama-Nyungan",
+     "Warrgamay",
+     "Yarli-Baagandji",
+     "Yimidhirr-Yalanji-Yidinic",
+     "Yuulngu"
+    ],
+    "homeland_km": {
+     "Gulf Plains": {
+      "centre": 746,
+      "hotspot": 178,
+      "branch_centre": 528
+     }
+    }
+   },
+   "afro1255": {
+    "node": "afro1255",
+    "name": "Afro-Asiatic",
+    "n": 381,
+    "n_living": 332,
+    "centre": [
+     14.32,
+     20.91
+    ],
+    "n_branches": 5,
+    "hotspot": [
+     10.539,
+     12.995
+    ],
+    "hotspot_lang": "Marghi South",
+    "hotspot_branches": 2,
+    "branch_centre": [
+     20.282,
+     25.254
+    ],
+    "branches": [
+     "Berber",
+     "Chadic",
+     "Cushitic",
+     "Egyptian",
+     "Semitic"
+    ],
+    "homeland_km": {
+     "African origin": {
+      "centre": 1852,
+      "hotspot": 2735,
+      "branch_centre": 1580
+     },
+     "Levantine origin": {
+      "centre": 2504,
+      "hotspot": 3358,
+      "branch_centre": 1697
+     }
+    }
+   },
+   "turk1311": {
+    "node": "turk1311",
+    "name": "Turkic",
+    "n": 43,
+    "n_living": 39,
+    "centre": [
+     48.589,
+     63.368
+    ],
+    "n_branches": 8,
+    "hotspot": [
+     53.71,
+     87.845
+    ],
+    "hotspot_lang": "Mrassu Shor-Tutal",
+    "hotspot_branches": 2,
+    "branch_centre": [
+     49.602,
+     72.146
+    ],
+    "branches": [
+     "Bolgar",
+     "Khalaj Turkic",
+     "Kipchak-Turkestan",
+     "Oghuz",
+     "Old Turkic",
+     "Sakha-Dolgan",
+     "South Siberian Turkic",
+     "West Yugur"
+    ],
+    "homeland_km": {
+     "Eastern steppe": {
+      "centre": 2813,
+      "hotspot": 1143,
+      "branch_centre": 2165
+     }
+    }
+   },
+   "sino1245": {
+    "node": "sino1245",
+    "name": "Sino-Tibetan",
+    "n": 518,
+    "n_living": 496,
+    "centre": [
+     26.243,
+     95.6
+    ],
+    "n_branches": 19,
+    "hotspot": [
+     25.732,
+     93.046
+    ],
+    "hotspot_lang": "Hills Karbi",
+    "hotspot_branches": 15,
+    "branch_centre": [
+     26.842,
+     94.18
+    ],
+    "branches": [
+     "Bodic",
+     "Brahmaputran",
+     "Burmo-Qiangic",
+     "Dhimal-Lhokpu-Toto",
+     "Digarish",
+     "Gongduk",
+     "Himalayish",
+     "Karenic",
+     "Kho-Bwa",
+     "Kman-Meyor",
+     "Kuki-Chin-Naga",
+     "Macro-Bai",
+     "Macro-Tani",
+     "Miji",
+     "Mruic",
+     "Nungish",
+     "Olekha",
+     "Raji-Raute",
+     "Sinitic"
+    ],
+    "homeland_km": {
+     "Yellow River": {
+      "centre": 1460,
+      "hotspot": 1686,
+      "branch_centre": 1520
+     }
+    }
+   }
+  },
+  "n_hot_within500": 5,
+  "n_hot_within1000": 6,
+  "n_centre_within500": 2,
+  "n_compared": 11,
+  "an_km": 340,
+  "an_centre_km": 3368,
+  "pn_km": 178,
+  "bantu_km": 497,
+  "bantu_centre_km": 1994,
+  "qu_km": 288,
+  "ie": {
+   "node": "indo1319",
+   "name": "Indo-European",
+   "n": 586,
+   "n_living": 485,
+   "centre": [
+    39.961,
+    51.459
+   ],
+   "n_branches": 10,
+   "hotspot": [
+    42.709,
+    18.024
+   ],
+   "hotspot_lang": "Dalmatian",
+   "hotspot_branches": 6,
+   "branch_centre": [
+    45.653,
+    29.853
+   ],
+   "branches": [
+    "Albanian",
+    "Anatolian",
+    "Armenic",
+    "Balto-Slavic",
+    "Celtic",
+    "Germanic",
+    "Graeco-Phrygian",
+    "Indo-Iranian",
+    "Italic",
+    "Tokharian"
+   ],
+   "homeland_km": {
+    "Steppe hypothesis": {
+     "centre": 1278,
+     "hotspot": 1808,
+     "branch_centre": 814
+    },
+    "Anatolian hypothesis": {
+     "centre": 1595,
+     "hotspot": 1346,
+     "branch_centre": 837
+    },
+    "Hybrid hypothesis": {
+     "centre": 597,
+     "hotspot": 2237,
+     "branch_centre": 1378
+    }
+   }
+  },
+  "st": {
+   "node": "sino1245",
+   "name": "Sino-Tibetan",
+   "n": 518,
+   "n_living": 496,
+   "centre": [
+    26.243,
+    95.6
+   ],
+   "n_branches": 19,
+   "hotspot": [
+    25.732,
+    93.046
+   ],
+   "hotspot_lang": "Hills Karbi",
+   "hotspot_branches": 15,
+   "branch_centre": [
+    26.842,
+    94.18
+   ],
+   "branches": [
+    "Bodic",
+    "Brahmaputran",
+    "Burmo-Qiangic",
+    "Dhimal-Lhokpu-Toto",
+    "Digarish",
+    "Gongduk",
+    "Himalayish",
+    "Karenic",
+    "Kho-Bwa",
+    "Kman-Meyor",
+    "Kuki-Chin-Naga",
+    "Macro-Bai",
+    "Macro-Tani",
+    "Miji",
+    "Mruic",
+    "Nungish",
+    "Olekha",
+    "Raji-Raute",
+    "Sinitic"
+   ],
+   "homeland_km": {
+    "Yellow River": {
+     "centre": 1460,
+     "hotspot": 1686,
+     "branch_centre": 1520
+    }
+   }
+  }
+ }
+}
