@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "Where Languages Come From: The World's Language Families, Their Proposed Homelands and Where They Are Spoken Today, Mapped from Glottolog"
+type: dataset
+authors:
+  - family-names: Hotham
+    given-names: Tristan
+    orcid: "https://orcid.org/0000-0003-4931-9349"
+    affiliation: "Independent researcher"
+doi: "10.5281/zenodo.23844509"
+url: "https://maps.tristanhotham.com/language-origins/"
+repository-code: "https://github.com/Tristan-Hotham/language-origins"
+license: CC-BY-4.0
+keywords:
+  - "languages"
+  - "language families"
+  - "Glottolog"
+  - "language endangerment"
+  - "linguistic diversity"
+  - "homelands"
+  - "Indo-European"
+  - "Austronesian"
+  - "Bantu"
+  - "maps"
